@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cd1n8io8yoe1u"]
+
+[ext_resource type="Script" uid="uid://exgqi7sa5v2u" path="res://scenes/ui.gd" id="1_nt7q6"]
+
+[node name="UI" type="VFlowContainer" unique_id=214917193]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nt7q6")
+
+[node name="mask_label" type="Label" parent="." unique_id=14484612]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Current Mask:"
