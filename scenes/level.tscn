@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://coeqlhbyqq13y"]
+
+[ext_resource type="PackedScene" uid="uid://dagc7aeddyrf4" path="res://scenes/stein.tscn" id="1_2q6dc"]
+
+[node name="level" type="Node2D" unique_id=77777411]
+
+[node name="Sprite2D" parent="." unique_id=281077795 instance=ExtResource("1_2q6dc")]
+position = Vector2(408, 193)
+color = Color(0, 1, 0, 1)
+layer = 3
+
+[node name="Sprite2D2" parent="." unique_id=2068476046 instance=ExtResource("1_2q6dc")]
+position = Vector2(228, -179)
+color = Color(1, 0, 1, 1)
+
+[node name="Sprite2D3" parent="." unique_id=544800915 instance=ExtResource("1_2q6dc")]
+position = Vector2(-281, 198)
+color = Color(1, 0, 1, 1)
+
+[node name="Sprite2D4" parent="." unique_id=674951328 instance=ExtResource("1_2q6dc")]
+position = Vector2(-276, -206)
+color = Color(0, 1, 0, 1)
+layer = 3
