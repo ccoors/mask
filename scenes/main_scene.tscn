@@ -1,8 +1,38 @@
 [gd_scene format=3 uid="uid://cowu2jgeg1mu7"]
 
 [ext_resource type="PackedScene" uid="uid://canf8l0o81yey" path="res://scenes/player.tscn" id="1_w2twt"]
+[ext_resource type="Texture2D" uid="uid://qqwt32nrosi" path="res://assets/tiles/grass.png" id="2_pu3yx"]
+[ext_resource type="Texture2D" uid="uid://t2yflat26ojp" path="res://assets/tiles/lava.png" id="3_gubc5"]
+[ext_resource type="Texture2D" uid="uid://cymxuh053mwyl" path="res://assets/tiles/water.png" id="4_rt2n2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c16ls"]
+texture = ExtResource("2_pu3yx")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18nlu"]
+texture = ExtResource("3_gubc5")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1pb6"]
+texture = ExtResource("4_rt2n2")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6wevv"]
+tile_shape = 3
+tile_layout = 4
+tile_size = Vector2i(120, 140)
+sources/3 = SubResource("TileSetAtlasSource_c16ls")
+sources/4 = SubResource("TileSetAtlasSource_18nlu")
+sources/5 = SubResource("TileSetAtlasSource_c1pb6")
 
 [node name="Main" type="Node2D" unique_id=449981256]
 
 [node name="CharacterBody2D" parent="." unique_id=1887347588 instance=ExtResource("1_w2twt")]
 position = Vector2(93, 130)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1374615734]
+tile_set = SubResource("TileSet_6wevv")
+rendering_quadrant_size = 1
