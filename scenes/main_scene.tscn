@@ -1,8 +1,115 @@
 [gd_scene format=3 uid="uid://cowu2jgeg1mu7"]
 
 [ext_resource type="PackedScene" uid="uid://canf8l0o81yey" path="res://scenes/player.tscn" id="1_w2twt"]
+[ext_resource type="Texture2D" uid="uid://b4gmxcn81piwn" path="res://sprites/spark.png" id="2_pw63i"]
+[ext_resource type="Script" uid="uid://b7riidfpsx58s" path="res://scripts/spark.gd" id="3_pu3yx"]
+[ext_resource type="Texture2D" uid="uid://cymcyx25aps2g" path="res://sprites/bubble.png" id="4_gubc5"]
+[ext_resource type="Texture2D" uid="uid://d02jk8kujgv4h" path="res://sprites/pollen.png" id="5_gubc5"]
+[ext_resource type="Script" uid="uid://dacc35kdsjd8y" path="res://scripts/bubble.gd" id="5_rt2n2"]
+
+[sub_resource type="Gradient" id="Gradient_7ykc4"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0, 0.5215336, 1)
+colors = PackedColorArray(1, 0.8617061, 0.61002886, 1, 1, 0.3882353, 0, 1, 1, 0.3882353, 0, 0.0627451)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pu3yx"]
+gradient = SubResource("Gradient_7ykc4")
+width = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gubc5"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 120.0
+initial_velocity_min = 180.0
+initial_velocity_max = 420.0
+gravity = Vector3(0, 800, 0)
+damping_min = 2.0
+damping_max = 2.0
+color_ramp = SubResource("GradientTexture1D_pu3yx")
+collision_mode = 1
+collision_friction = 0.4
+collision_bounce = 0.6
+
+[sub_resource type="Gradient" id="Gradient_rt2n2"]
+offsets = PackedFloat32Array(0.0021132713, 0.49492815, 0.99873203)
+colors = PackedColorArray(0, 0, 1, 0, 0.6088919, 0.7672996, 1, 0.49385855, 0.60784316, 0.76862746, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c16ls"]
+gradient = SubResource("Gradient_rt2n2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_18nlu"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 24.0
+initial_velocity_max = 56.0
+gravity = Vector3(0, -5, 0)
+damping_min = 0.3
+damping_max = 0.3
+scale_min = 0.59999996
+scale_max = 1.4
+color = Color(1.0213679, 1.0249703, 1.032, 1)
+color_ramp = SubResource("GradientTexture1D_c16ls")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Gradient" id="Gradient_c16ls"]
+offsets = PackedFloat32Array(0, 0.5215336, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.5517076, 1, 0.48122883, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_18nlu"]
+gradient = SubResource("Gradient_c16ls")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c1pb6"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 9.0
+initial_velocity_max = 11.0
+angular_velocity_min = -0.5000161
+angular_velocity_max = 1.4999839
+gravity = Vector3(10, 1, 0)
+damping_min = 0.1
+damping_max = 0.1
+scale_min = 0.7
+scale_max = 1.3
+color = Color(0.68764454, 1, 0.6604423, 1)
+color_ramp = SubResource("GradientTexture1D_18nlu")
 
 [node name="Main" type="Node2D" unique_id=449981256]
 
 [node name="CharacterBody2D" parent="." unique_id=1887347588 instance=ExtResource("1_w2twt")]
 position = Vector2(93, 130)
+
+[node name="SparkParticles" type="GPUParticles2D" parent="." unique_id=1085145563]
+amount = 40
+texture = ExtResource("2_pw63i")
+lifetime = 8.66
+explosiveness = 0.8
+randomness = 0.2
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_gubc5")
+script = ExtResource("3_pu3yx")
+
+[node name="BubbleParticles" type="GPUParticles2D" parent="." unique_id=676575751]
+position = Vector2(414, 231)
+amount = 40
+texture = ExtResource("4_gubc5")
+lifetime = 8.66
+randomness = 0.4
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_18nlu")
+script = ExtResource("5_rt2n2")
+
+[node name="PollenParticles" type="GPUParticles2D" parent="." unique_id=1792556278]
+position = Vector2(284, 404)
+amount = 120
+texture = ExtResource("5_gubc5")
+lifetime = 8.66
+speed_scale = 0.3
+randomness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_c1pb6")
+script = ExtResource("3_pu3yx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1958846114]
