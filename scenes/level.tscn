@@ -13,5 +13,5 @@ position = Vector2(81, -410)
 
 [node name="item_spawn" type="Node2D" parent="." unique_id=1616170235]
 script = ExtResource("4_mx8sn")
-size = 20
-_seed = 4211564508
+min_dist = 4
+_seed = 48291795
