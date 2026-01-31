@@ -11,4 +11,4 @@ godot -v --headless --export-release "Linux" ./export/linux/elektrisches_maskens
 godot -v --headless --export-release "Windows Desktop" ./export/windows/elektrisches_maskenspiel.exe
 
 cd export
-zip -4 -r ../${DEST_FILE} .
+7z a -mx6 ../${DEST_FILE} .
