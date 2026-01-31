@@ -98,3 +98,4 @@ $RECYCLE.BIN/
 .godot/
 /android/
 export/
+*.zip
