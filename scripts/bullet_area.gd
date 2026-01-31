@@ -34,7 +34,7 @@ func _process(delta):
 	# air noise
 	if bullet.noise_strength > 0.0:
 		var angle = randf() * TAU
-		velocity += Vector2.from_angle(angle) * bullet.noise_strength
+		velocity += Vector2.from_angle(angle) * bullet.noise_strength * randf()
 	
 	position += velocity * delta
 

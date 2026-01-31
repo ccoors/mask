@@ -6,6 +6,6 @@
 [node name="SparkEmitter" type="Node2D" unique_id=1328994863]
 script = ExtResource("1_fivus")
 bullet_scene = ExtResource("2_leji1")
-bullets_per_second = 80
+bullets_per_second = 10
 max_bullets = 400
 bullet_type = 2

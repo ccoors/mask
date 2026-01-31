@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://cskplp60gnayr"]
+[gd_scene format=3 uid="uid://ce01p06128olx"]
 
-[ext_resource type="Script" uid="uid://bkk31tp4mnqhg" path="res://scenes/items/baum.gd" id="1_edhya"]
+[ext_resource type="Script" path="res://scenes/items/baum.gd" id="1_edhya"]
 [ext_resource type="PackedScene" uid="uid://n67ps1tsfxjd" path="res://assets/art/tree.glb" id="2_edhya"]
+[ext_resource type="PackedScene" uid="uid://crwim327e0ulb" path="res://scenes/pollen_emitter.tscn" id="3_spaub"]
 
 [sub_resource type="Animation" id="Animation_edhya"]
 length = 0.001
@@ -70,3 +71,5 @@ omni_range = 15.317611
 transform = Transform3D(1, 0, 0, 0, 0.3097971, 0.9508027, 0, -0.9508027, 0.3097971, 0, 18.006926, 0)
 light_energy = 50.0
 spot_range = 26.59489
+
+[node name="PollenEmitter" parent="." unique_id=1281906041 instance=ExtResource("3_spaub")]

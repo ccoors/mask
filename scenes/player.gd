@@ -13,29 +13,29 @@ func _ready() -> void:
 
 func hit():
 
-    health -= 1
-    health = max(0, health)
-    if health == 0:
-        get_tree().change_scene_to_file("res://scenes/intermediate/lose_screen.tscn")
-        return
-    health_changed.emit(health)
+	health -= 1
+	health = max(0, health)
+	if health == 0:
+		get_tree().change_scene_to_file("res://scenes/intermediate/lose_screen.tscn")
+		return
+	health_changed.emit(health)
 
 func heal():
 	health += 1
 	health_changed.emit(health)
 
 func win():
-    get_tree().change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
-    pass
+	get_tree().change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
+	pass
 
 func set_mask(idx: int) -> void:
-    var mask = GLOBALS.MASKS[idx]
-    GLOBALS.change_mask(idx)
-    var set_cmask = 0
-    for i in range(5):
-        if mask["collision_mask"] != i:
-            set_cmask |= (1 << i)
-    collision_mask = set_cmask
+	var mask = GLOBALS.MASKS[idx]
+	GLOBALS.change_mask(idx)
+	var set_cmask = 0
+	for i in range(5):
+		if mask["collision_mask"] != i:
+			set_cmask |= (1 << i)
+	collision_mask = set_cmask
 
 func _process(_delta: float) -> void:
 	for n in range(GLOBALS.MASKS.size()):
@@ -60,4 +60,4 @@ func _physics_process(delta: float) -> void:
 		rotation += ROTATION_SPEED * delta * direction.x
 
 
-    move_and_slide()
+	move_and_slide()

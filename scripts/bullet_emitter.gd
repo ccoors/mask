@@ -12,21 +12,21 @@ const BulletType = preload("res://scripts/bullet_type.gd").BulletType
 
 var BulletData = {
 	BulletType.POLLEN: Bullet.new(
-		3.0, 10.0, 90.0,
+		40.0, 50.0, 90.0,
 		preload("res://assets/sprites/pollen.png"),
 		Vector2.ZERO,
 		3,
 		BulletType.POLLEN
 	),
 	BulletType.BUBBLE: Bullet.new(
-		10.0, 12.0, 30.0,
+		160.0, 12.0, 6.0,
 		preload("res://assets/sprites/bubble.png"),
 		Vector2.ZERO,
 		4,
 		BulletType.BUBBLE
 	),
 	BulletType.SPARK: Bullet.new(
-		50.0, 0.0, 10.0,
+		300.0, 0.0, 10.0,
 		preload("res://assets/sprites/spark.png"),
 		Vector2.ZERO,
 		2,
@@ -36,6 +36,7 @@ var BulletData = {
 
 
 var _accumulator := 0.0
+var base_rotation := 0.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -52,6 +53,9 @@ func _process(delta: float) -> void:
 		_spawn_bullet()
 	
 func _spawn_bullet():
+	base_rotation += 5.0
+	if base_rotation >= 360:
+		base_rotation -= 360
 	var group_name := "bullet_" + str(bullet_type)
 	
 	if get_tree().get_nodes_in_group(group_name).size() >= max_bullets:
@@ -59,7 +63,7 @@ func _spawn_bullet():
 		
 	var bullet = bullet_scene.instantiate()
 	
-	var base_direction := Vector2.RIGHT.rotated(global_rotation)
+	var base_direction := Vector2.RIGHT.rotated(deg_to_rad(base_rotation))
 	var spread := deg_to_rad(spread_angle_deg)
 	var direction := base_direction.rotated(randf_range(-spread * 0.5, spread * 0.5))
 	
