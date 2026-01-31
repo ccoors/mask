@@ -13,18 +13,23 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("1_4ktwk")
 
 [node name="Label" type="Label" parent="." unique_id=69712886]
+unique_name_in_owner = true
+z_index = 5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1092.0
+offset_bottom = -807.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 406
+theme_override_font_sizes/font_size = 200
 text = "You lost."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="restart" type="Button" parent="." unique_id=1212041758]
+z_index = 10
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
