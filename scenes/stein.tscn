@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://fa4o2d3025u6" path="res://assets/sprites/stein.png" id="1_v1842"]
 [ext_resource type="Script" uid="uid://bha6efaaiqwwb" path="res://scenes/stein.gd" id="2_o22ls"]
 
-[node name="Sprite2D" type="Sprite2D" unique_id=281077795]
+[node name="Stein" type="Sprite2D" unique_id=281077795]
 texture = ExtResource("1_v1842")
 script = ExtResource("2_o22ls")
 

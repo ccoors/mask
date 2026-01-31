@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const ROTATION_SPEED = 4;
+const SPEED = 500.0
+const ROTATION_SPEED = 5;
 
 signal mask_changed(new_mask: int)
 
