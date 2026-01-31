@@ -1,43 +1,10 @@
 [gd_scene format=3 uid="uid://croopb7u170jy"]
 
-[ext_resource type="Texture2D" uid="uid://duk8nqt4op0hq" path="res://assets/art/dolphin/dolphin1.png" id="1_8w2np"]
-[ext_resource type="Texture2D" uid="uid://cep2th7egrqqe" path="res://assets/art/dolphin/dolphin2.png" id="2_e1rpp"]
-[ext_resource type="Texture2D" uid="uid://beau3f0f3bxja" path="res://assets/art/dolphin/dolphin3.png" id="3_q4grh"]
-[ext_resource type="Texture2D" uid="uid://dy3bdt1pojp8b" path="res://assets/art/dolphin/dolphin4.png" id="4_gydr4"]
+[ext_resource type="PackedScene" uid="uid://8df6b6adup4s" path="res://scenes/items/dolphin_animation.tscn" id="1_imr1f"]
 [ext_resource type="PackedScene" uid="uid://dx6bh6uu2shty" path="res://scenes/bubble_emitter.tscn" id="5_e1rpp"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_u54na"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_8w2np")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_e1rpp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_8w2np")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_q4grh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_gydr4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_q4grh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
 
 [node name="Dolphin" type="Node2D" unique_id=1978908252]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=64052618]
-sprite_frames = SubResource("SpriteFrames_u54na")
-autoplay = "default"
-frame = 2
-frame_progress = 0.2711387
+[node name="dolphin_animation" parent="." unique_id=225650916 instance=ExtResource("1_imr1f")]
 
 [node name="BubbleEmitter" parent="." unique_id=1328994863 instance=ExtResource("5_e1rpp")]

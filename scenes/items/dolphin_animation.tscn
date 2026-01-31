@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://8df6b6adup4s"]
+
+[ext_resource type="Texture2D" uid="uid://duk8nqt4op0hq" path="res://assets/art/dolphin/dolphin1.png" id="1_1bok2"]
+[ext_resource type="Texture2D" uid="uid://cep2th7egrqqe" path="res://assets/art/dolphin/dolphin2.png" id="2_qwexl"]
+[ext_resource type="Texture2D" uid="uid://beau3f0f3bxja" path="res://assets/art/dolphin/dolphin3.png" id="3_4qjxc"]
+[ext_resource type="Texture2D" uid="uid://dy3bdt1pojp8b" path="res://assets/art/dolphin/dolphin4.png" id="4_fdrqw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u54na"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1bok2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qwexl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_1bok2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4qjxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fdrqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4qjxc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=225650916]
+sprite_frames = SubResource("SpriteFrames_u54na")
+autoplay = "default"
+frame = 2
+frame_progress = 0.2711387
