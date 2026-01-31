@@ -15,19 +15,22 @@ var BulletData = {
 		3.0, 10.0, 90.0,
 		preload("res://assets/sprites/pollen.png"),
 		Vector2.ZERO,
-		3
+		3,
+		BulletType.POLLEN
 	),
 	BulletType.BUBBLE: Bullet.new(
 		10.0, 12.0, 30.0,
 		preload("res://assets/sprites/bubble.png"),
 		Vector2.ZERO,
-		4
+		4,
+		BulletType.BUBBLE
 	),
 	BulletType.SPARK: Bullet.new(
 		50.0, 0.0, 10.0,
 		preload("res://assets/sprites/spark.png"),
 		Vector2.ZERO,
-		2
+		2,
+		BulletType.BUBBLE
 	),
 }
 
@@ -49,7 +52,9 @@ func _process(delta: float) -> void:
 		_spawn_bullet()
 	
 func _spawn_bullet():
-	if get_tree().get_node_count() > max_bullets:
+	var group_name := "bullet_" + str(bullet_type)
+	
+	if get_tree().get_nodes_in_group(group_name).size() >= max_bullets:
 		return
 		
 	var bullet = bullet_scene.instantiate()
