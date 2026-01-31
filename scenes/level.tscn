@@ -3,9 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bu2asn3rttoff" path="res://scenes/tiles.tscn" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dkq3tiswraqgs" path="res://scenes/items/health_item.tscn" id="3_w8frs"]
 [ext_resource type="Script" uid="uid://c3e4dnol1btq5" path="res://scripts/item_generator.gd" id="4_mx8sn"]
-[ext_resource type="PackedScene" uid="uid://c11p5qlq846in" path="res://scenes/items/katzenfutter.tscn" id="4_ppgk2"]
+[ext_resource type="PackedScene" path="res://scenes/items/katzenfutter.tscn" id="4_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://e8du2lkwh4tb" path="res://scenes/spark_emitter.tscn" id="5_klq6b"]
 [ext_resource type="PackedScene" uid="uid://croopb7u170jy" path="res://scenes/items/dolphin.tscn" id="7_klq6b"]
+[ext_resource type="PackedScene" uid="uid://cgtw4d4h7qhkp" path="res://scenes/items/dragon.tscn" id="8_8c41q"]
 [ext_resource type="PackedScene" uid="uid://ce01p06128olx" path="res://scenes/items/baum.tscn" id="8_b121j"]
 
 [node name="level" type="Node2D" unique_id=77777411]
@@ -19,7 +20,6 @@ position = Vector2(81, -410)
 
 [node name="item_spawn" type="Node2D" parent="." unique_id=1616170235]
 script = ExtResource("4_mx8sn")
-min_dist = 6
 _seed = 2281363599
 perlin_threshold = 0.88
 
@@ -34,3 +34,6 @@ position = Vector2(340, 179)
 
 [node name="Dolphin" parent="." unique_id=1978908252 instance=ExtResource("7_klq6b")]
 position = Vector2(-492, 277)
+
+[node name="dragon" parent="." unique_id=673115778 instance=ExtResource("8_8c41q")]
+position = Vector2(730, 738)
