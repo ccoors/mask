@@ -2,18 +2,24 @@
 extends Node2D
 class_name ItemGenerator
 
+const PollenEmitter = preload("res://scenes/pollen_emitter.tscn")
+const SparkEmitter = preload("res://scenes/spark_emitter.tscn")
+const BubbleEmitter = preload("res://scenes/bubble_emitter.tscn")
+
 const SteinResource = preload("res://scenes/stein.tscn")
+
+const Emitter = [PollenEmitter, SparkEmitter, BubbleEmitter]
 
 @export var size: int = 128:
 	set(value):
 		if value > 0:
 			size = value
 			gen_map()
-			
-@export var min_dist: int = 10:
+
+@export var emitter_spawn: int = 20:
 	set(value):
 		if value > 0:
-			min_dist = value
+			emitter_spawn = value
 			gen_map()
 
 @export_tool_button("Recreate Map") var execute_action = gen_map
@@ -35,12 +41,6 @@ const SteinResource = preload("res://scenes/stein.tscn")
 func randomize_seed():
 	_seed = randi()
 
-func is_close(lst: Array[Vector2i], pos: Vector2i) -> bool:
-	for itm in lst:
-		if itm.distance_to(pos) < min_dist:
-			return true
-	return false
-
 func gen_map():
 	for node in get_children():
 		node.free()
@@ -51,18 +51,26 @@ func gen_map():
 	noise.frequency = 0.5
 	noise.fractal_lacunarity = 2
 	noise.fractal_octaves = 3
-	# var last: Array[Vector2i] = []
 	var halfsize = ceil(float(size)/2)
+	var num = 0
+	var num_obst = 0
+	var num_emitter = 0
 	for y in range(-halfsize, halfsize):
 		for x in range(-halfsize, halfsize):
+			num += 1
 			if (noise.get_noise_2d(x, y) + 0.5) < perlin_threshold:
 				continue
-			#if is_close(last, Vector2i(x, y)):
-			#    continue
-			#last.append(Vector2i(x, y))
-			var obst = SteinResource.instantiate()
-			obst.mask_id = randi() % 3
-			obst.position = Vector2(x * GLOBALS.TILE_WIDTH/2, y * GLOBALS.TILE_WIDTH/2)
-			
-			add_child(obst)
-	print("Item generation done")
+			var item: Node2D
+			if num % emitter_spawn == 0:
+				item = Emitter[randi() % Emitter.size()].instantiate()
+				num_emitter += 1
+			else:
+				var obst = SteinResource.instantiate()
+				obst.mask_id = randi() % 3
+				item = obst
+				num_obst += 1
+			item.position = Vector2(
+				x * floor(GLOBALS.TILE_WIDTH/2),
+				y * floor(GLOBALS.TILE_WIDTH/2))
+			add_child(item)
+	print("Item generation done - obstacles: ", num_obst, " emitter: ", num_emitter)

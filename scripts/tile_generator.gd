@@ -74,6 +74,7 @@ func gen_map() -> void:
 	noise.fractal_lacunarity = 2
 	noise.fractal_octaves = 2
 	var halfsize = ceil(float(size)/2)
+	print("Generate Tiles")
 	for y in range(-halfsize, halfsize):
 		for x in range(-halfsize, halfsize):
 			var val = noise.get_noise_2d(x, y)
@@ -81,3 +82,4 @@ func gen_map() -> void:
 			if tile_type > 2:
 				tile_type = 2
 			set_cell(Vector2i(x, y), _get_tile_variation(_tile_type_to_string(tile_type)), Vector2i.ZERO)
+	print(size*size, " tiles generated")
