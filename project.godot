@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="MASK: Systems Beneath the Surface"
+config/name="Elektrisches Maskenspiel"
 config/version="0.0.1"
 run/main_scene="uid://cowu2jgeg1mu7"
 config/features=PackedStringArray("4.6", "Forward Plus")
