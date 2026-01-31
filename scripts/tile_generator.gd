@@ -21,6 +21,28 @@ func randomize_seed():
             gen_map()
             size = value
 
+const TILE_TYPE_GRASS: String = "grass"
+const TILE_TYPE_LAVA: String = "lava"
+const TILE_TYPE_WATER: String = "water"
+const TILE_VARIATION_DIST: Array[float] = [0.6, 0.3, 0.1]
+
+const GRASS0_ID: int = 0
+const GRASS1_ID: int = 1
+const GRASS2_ID: int = 2
+
+
+func _get_tile_variation(tile_type: String) -> int:
+    var variation_dist = randf()
+    var variation_index: int
+    if variation_dist < TILE_VARIATION_DIST[2]:
+        variation_index = 2
+    elif variation_dist < TILE_VARIATION_DIST[1]:
+        variation_index = 1
+    else:
+        variation_index = 0
+    return [GRASS0_ID, GRASS1_ID, GRASS2_ID][variation_index]
+
+
 func gen_map() -> void:
     clear()
     var noise = FastNoiseLite.new()
@@ -36,4 +58,4 @@ func gen_map() -> void:
             var tile_id = round(abs(val) * 5);
             if tile_id > 2:
                 tile_id = 2
-            set_cell(Vector2i(x, y), tile_id, Vector2i.ZERO)
+            set_cell(Vector2i(x, y), _get_tile_variation(TILE_TYPE_GRASS), Vector2i.ZERO)
