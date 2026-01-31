@@ -23,9 +23,9 @@ script = ExtResource("1_7ykc4")
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1289979088]
 ignore_rotation = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D" unique_id=308023886]
+[node name="ShaderLayer" type="CanvasLayer" parent="player/Camera2D" unique_id=308023886]
 
-[node name="ColorRect" type="ColorRect" parent="player/Camera2D/CanvasLayer" unique_id=181209170]
+[node name="ColorRect" type="ColorRect" parent="player/Camera2D/ShaderLayer" unique_id=181209170]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_gubc5")
 anchors_preset = 15
@@ -35,7 +35,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="UI" parent="player/Camera2D" unique_id=1718296178 instance=ExtResource("2_pw63i")]
+[node name="UILayer" type="CanvasLayer" parent="player/Camera2D" unique_id=818402095]
+layer = 2
+offset = Vector2(960, 540)
+transform = Transform2D(1, 0, 0, 1, 960, 540)
+
+[node name="UI" parent="player/Camera2D/UILayer" unique_id=1718296178 instance=ExtResource("2_pw63i")]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 0.0
@@ -43,8 +48,8 @@ anchor_bottom = 0.0
 offset_left = -960.0
 offset_top = -540.0
 offset_right = -741.0
-offset_bottom = -495.0
+offset_bottom = -459.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[connection signal="health_changed" from="player" to="player/Camera2D/UI" method="update_health"]
+[connection signal="health_changed" from="player" to="player/Camera2D/UILayer/UI" method="update_health"]
