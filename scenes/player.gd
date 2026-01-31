@@ -45,8 +45,10 @@ func _physics_process(delta: float) -> void:
             -direction.y * SPEED * sin(rotation),
             direction.y * SPEED * cos(rotation),
         )
+        %AnimatedSprite2D.play("run")
     else:
         velocity = Vector2.ZERO
+        %AnimatedSprite2D.play("idle")
     if direction.x:
         rotation += ROTATION_SPEED * delta * direction.x
 

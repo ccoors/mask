@@ -11,3 +11,7 @@ func _on_mask_changed(new_mask: int) -> void:
         "vignette_color",
         mask["color"],
     )
+
+func _input(event: InputEvent) -> void:
+    if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+        get_tree().quit()
