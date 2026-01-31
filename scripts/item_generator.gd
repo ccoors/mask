@@ -2,9 +2,9 @@
 extends Node2D
 class_name ItemGenerator
 
-const PollenEmitter = preload("res://scenes/pollen_emitter.tscn")
-const SparkEmitter = preload("res://scenes/spark_emitter.tscn")
-const BubbleEmitter = preload("res://scenes/bubble_emitter.tscn")
+const PollenEmitter = preload("res://scenes/items/baum.tscn")
+const BubbleEmitter = preload("res://scenes/items/dolphin.tscn")
+const SparkEmitter = preload("res://scenes/items/dragon.tscn")
 
 const SteinResource = preload("res://scenes/stein.tscn")
 
@@ -60,7 +60,7 @@ func gen_map():
 				item = obst
 				num_obst += 1
 			item.position = Vector2(
-				x * floor(GLOBALS.TILE_WIDTH/2),
-				y * floor(GLOBALS.TILE_WIDTH/2))
+				x * floor(GLOBALS.TILE_WIDTH * 2),
+				y * floor(GLOBALS.TILE_WIDTH * 2))
 			add_child(item)
 	print("Item generation done - obstacles: ", num_obst, " emitter: ", num_emitter)
