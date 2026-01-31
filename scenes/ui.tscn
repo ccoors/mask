@@ -18,13 +18,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Current Mask:"
 
-[node name="health_display" type="HBoxContainer" parent="." unique_id=611893491]
+[node name="health_display" type="TextureRect" parent="." unique_id=1988670441]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-script = ExtResource("2_yev5y")
-
-[node name="template" type="TextureRect" parent="health_display" unique_id=1988670441]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
+size_flags_horizontal = 0
 texture = ExtResource("3_gdt2y")
+expand_mode = 1
+stretch_mode = 1
+script = ExtResource("2_yev5y")

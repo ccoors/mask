@@ -13,7 +13,9 @@ func _ready() -> void:
 
 func hit():
     health -= 1
-    if health <= 0:
+    health = max(0, health)
+    if health == 0:
+        # TODO: Die
         pass
     health_changed.emit(health)
 
@@ -25,6 +27,7 @@ func set_mask(idx: int) -> void:
         if mask["collision_mask"] != i:
             set_cmask |= (1 << i)
     collision_mask = set_cmask
+    hit()
 
 func _process(_delta: float) -> void:
     for n in range(GLOBALS.MASKS.size()):
