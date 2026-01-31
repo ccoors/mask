@@ -13,6 +13,14 @@ shader_parameter/outer_radius = 0.7
 shader_parameter/vignette_strength = 0.1
 shader_parameter/vignette_color = Color(0, 0, 0, 0)
 
+[sub_resource type="Environment" id="Environment_gubc5"]
+background_mode = 3
+glow_intensity = 0.48
+glow_strength = 1.4
+glow_bloom = 0.37
+glow_blend_mode = 0
+glow_hdr_threshold = 0.54
+
 [node name="Main" type="Node2D" unique_id=449981256]
 script = ExtResource("1_7ykc4")
 
@@ -51,5 +59,8 @@ offset_right = -741.0
 offset_bottom = -459.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=283295451]
+environment = SubResource("Environment_gubc5")
 
 [connection signal="health_changed" from="player" to="player/Camera2D/UILayer/UI" method="update_health"]
