@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d02jk8kujgv4h"
-path="res://.godot/imported/pollen.png-d93ceb0f3d6fb9edb2f954379ed88503.ctex"
+path="res://.godot/imported/pollen.png-c5ce97f32e799a8f737f92f7c9a6c606.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/pollen.png"
-dest_files=["res://.godot/imported/pollen.png-d93ceb0f3d6fb9edb2f954379ed88503.ctex"]
+source_file="res://assets/sprites/pollen.png"
+dest_files=["res://.godot/imported/pollen.png-c5ce97f32e799a8f737f92f7c9a6c606.ctex"]
 
 [params]
 
