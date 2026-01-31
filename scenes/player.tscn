@@ -1,23 +1,100 @@
-[gd_scene format=3 uid="uid://canf8l0o81yey"]
+[gd_scene format=4 uid="uid://canf8l0o81yey"]
 
 [ext_resource type="Script" uid="uid://bic55ilremd5u" path="res://scenes/player.gd" id="1_3vyb7"]
 
-[sub_resource type="Gradient" id="Gradient_3vyb7"]
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_3vyb7"]
+_data = PackedByteArray("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")
+size_override = Vector2(312, 348)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g2els"]
-gradient = SubResource("Gradient_3vyb7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = SubResource("PortableCompressedTexture2D_3vyb7")
+region = Rect2(0, 0, 156, 174)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8vuu"]
-height = 64.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = SubResource("PortableCompressedTexture2D_3vyb7")
+region = Rect2(156, 0, 156, 174)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = SubResource("PortableCompressedTexture2D_3vyb7")
+region = Rect2(0, 174, 156, 174)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = SubResource("PortableCompressedTexture2D_3vyb7")
+region = Rect2(156, 174, 156, 174)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}],
+"loop": true,
+"name": &"colortest",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+size = Vector2(156, 174)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1887347588]
 motion_mode = 1
 script = ExtResource("1_3vyb7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=777217937]
-position = Vector2(9.536743e-07, 0)
-scale = Vector2(0.31249997, 1)
-texture = SubResource("GradientTexture2D_g2els")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1816323775]
+unique_name_in_owner = true
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"run"
+autoplay = "idle"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/art/cleanbear01-color.aseprite",
+"source_uid": 7161590757065299071
+}
+metadata/_aseprite_wizard_source_file_hash_ = "9fa9e9ed57afc8476d7779cf6b72f547"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=323642208]
-shape = SubResource("CapsuleShape2D_u8vuu")
+shape = SubResource("RectangleShape2D_3vyb7")
