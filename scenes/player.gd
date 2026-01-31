@@ -24,10 +24,14 @@ func heal():
     health_changed.emit(health)
 
 func exit_win():
-    get_tree().change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
+    var tree = get_tree()
+    if tree:
+        tree.change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
 
 func exit_loose():
-    get_tree().change_scene_to_file("res://scenes/intermediate/loose_screen.tscn")
+    var tree = get_tree()
+    if tree:
+        tree.change_scene_to_file("res://scenes/intermediate/loose_screen.tscn")
 
 func win():
     call_deferred("exit_win")
