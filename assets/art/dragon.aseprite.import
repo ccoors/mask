@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b2ofts5vad7ft"
+path="res://.godot/imported/dragon.aseprite-fcd83d107a19298fbadd747bb79d4617.res"
+
+[deps]
+
+source_file="res://assets/art/dragon.aseprite"
+dest_files=["res://.godot/imported/dragon.aseprite-fcd83d107a19298fbadd747bb79d4617.res"]
+
+[params]
+
