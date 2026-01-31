@@ -8,4 +8,4 @@ func _ready():
 func update_mask_id():
     var mask = GLOBALS.MASKS[mask_id]
     %StaticBody2D.collision_layer = (1 << mask["collision_mask"])
-    modulate = mask["color"]
+    modulate = mask["color"].lightened(0.3)

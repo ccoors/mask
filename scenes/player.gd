@@ -4,14 +4,12 @@ extends CharacterBody2D
 const SPEED = 500.0
 const ROTATION_SPEED = 5;
 
-signal mask_changed(new_mask: int)
-
 func _ready() -> void:
     set_mask(0)
-    
+
 func set_mask(idx: int) -> void:
     var mask = GLOBALS.MASKS[idx]
-    mask_changed.emit(idx)
+    GLOBALS.change_mask(idx)
     var set_cmask = 0
     for i in range(5):
         if mask["collision_mask"] != i:
