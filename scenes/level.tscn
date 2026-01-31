@@ -3,10 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bu2asn3rttoff" path="res://scenes/tiles.tscn" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dkq3tiswraqgs" path="res://scenes/items/health_item.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://crwim327e0ulb" path="res://scenes/pollen_emitter.tscn" id="4_2r41h"]
-[ext_resource type="Script" path="res://scripts/item_generator.gd" id="4_mx8sn"]
+[ext_resource type="Script" uid="uid://c3e4dnol1btq5" path="res://scripts/item_generator.gd" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://c11p5qlq846in" path="res://scenes/items/katzenfutter.tscn" id="4_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://e8du2lkwh4tb" path="res://scenes/spark_emitter.tscn" id="5_klq6b"]
 [ext_resource type="PackedScene" uid="uid://dx6bh6uu2shty" path="res://scenes/bubble_emitter.tscn" id="6_b121j"]
-[ext_resource type="PackedScene" uid="uid://c11p5qlq846in" path="res://scenes/items/katzenfutter.tscn" id="4_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://cskplp60gnayr" path="res://scenes/items/baum.tscn" id="8_b121j"]
 
 [node name="level" type="Node2D" unique_id=77777411]
 
@@ -33,3 +34,6 @@ position = Vector2(1456, -402)
 
 [node name="BubbleEmitter" parent="." unique_id=1573183473 instance=ExtResource("6_b121j")]
 position = Vector2(722, 270)
+
+[node name="Baum" parent="." unique_id=756794225 instance=ExtResource("8_b121j")]
+position = Vector2(340, 179)

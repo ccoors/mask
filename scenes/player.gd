@@ -35,7 +35,6 @@ func set_mask(idx: int) -> void:
         if mask["collision_mask"] != i:
             set_cmask |= (1 << i)
     collision_mask = set_cmask
-    hit()
 
 func _process(_delta: float) -> void:
     for n in range(GLOBALS.MASKS.size()):

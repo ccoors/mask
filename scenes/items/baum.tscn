@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cskplp60gnayr"]
+
+[ext_resource type="Script" uid="uid://bkk31tp4mnqhg" path="res://scenes/items/baum.gd" id="1_edhya"]
+[ext_resource type="PackedScene" uid="uid://n67ps1tsfxjd" path="res://assets/art/tree.glb" id="2_edhya"]
+
+[sub_resource type="Animation" id="Animation_edhya"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tree:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_spaub"]
+resource_name = "rotate"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tree:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6itim"]
+_data = {
+&"RESET": SubResource("Animation_edhya"),
+&"rotate": SubResource("Animation_spaub")
+}
+
+[node name="Baum" type="Sprite2D" unique_id=1634710703]
+script = ExtResource("1_edhya")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1718556109]
+unique_name_in_owner = true
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=891648246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.8976488, 4.965302)
+projection = 1
+fov = 48.0
+size = 9.575
+
+[node name="tree" parent="SubViewport" unique_id=1622392780 instance=ExtResource("2_edhya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport" unique_id=1066292363]
+libraries/ = SubResource("AnimationLibrary_6itim")
+autoplay = &"rotate"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport" unique_id=1474604800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4567585, 0, 6.1607046)
+light_energy = 2.0
+omni_range = 15.317611
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport/OmniLight3D" unique_id=1228251970]
+transform = Transform3D(1, 0, 0, 0, 0.3097971, 0.9508027, 0, -0.9508027, 0.3097971, 0, 18.006926, 0)
+light_energy = 50.0
+spot_range = 26.59489
