@@ -1,11 +1,21 @@
 extends CharacterBody2D
 
+signal health_changed(new_health: int)
 
 const SPEED = 500.0
 const ROTATION_SPEED = 5;
 
+@export var health: int = 10
+
 func _ready() -> void:
     set_mask(0)
+    health_changed.emit(health)
+
+func hit():
+    health -= 1
+    if health <= 0:
+        pass
+    health_changed.emit(health)
 
 func set_mask(idx: int) -> void:
     var mask = GLOBALS.MASKS[idx]

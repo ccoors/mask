@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cd1n8io8yoe1u"]
 
 [ext_resource type="Script" uid="uid://exgqi7sa5v2u" path="res://scenes/ui.gd" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://coxeshugdi0y3" path="res://scenes/health_display.gd" id="2_yev5y"]
+[ext_resource type="Texture2D" uid="uid://d1nitguolvj17" path="res://assets/sprites/heart.png" id="3_gdt2y"]
 
-[node name="UI" type="VFlowContainer" unique_id=214917193]
+[node name="UI" type="VBoxContainer" unique_id=1738480111]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,3 +17,14 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Current Mask:"
+
+[node name="health_display" type="HBoxContainer" parent="." unique_id=611893491]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_yev5y")
+
+[node name="template" type="TextureRect" parent="health_display" unique_id=1988670441]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("3_gdt2y")
