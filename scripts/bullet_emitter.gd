@@ -12,19 +12,22 @@ const BulletType = preload("res://scripts/bullet_type.gd").BulletType
 
 var BulletData = {
 	BulletType.POLLEN: Bullet.new(
-		3.0, 0.98, 10.0, 90.0,
+		3.0, 10.0, 90.0,
 		preload("res://assets/sprites/pollen.png"),
-		Vector2.ZERO
+		Vector2.ZERO,
+		3
 	),
 	BulletType.BUBBLE: Bullet.new(
-		10.0, 0.92, 12.0, 30.0,
+		10.0, 12.0, 30.0,
 		preload("res://assets/sprites/bubble.png"),
-		Vector2.ZERO
+		Vector2.ZERO,
+		4
 	),
 	BulletType.SPARK: Bullet.new(
-		50.0, 0.85, 0.0, 10.0,
+		50.0, 0.0, 10.0,
 		preload("res://assets/sprites/spark.png"),
-		Vector2.ZERO
+		Vector2.ZERO,
+		2
 	),
 }
 

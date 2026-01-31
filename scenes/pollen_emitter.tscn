@@ -6,3 +6,4 @@
 [node name="PollenEmitter" type="Node2D" unique_id=1281906041]
 script = ExtResource("1_fivus")
 bullet_scene = ExtResource("2_leji1")
+max_bullets = 1000

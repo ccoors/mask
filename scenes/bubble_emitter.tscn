@@ -6,4 +6,6 @@
 [node name="BubbleEmitter" type="Node2D" unique_id=1328994863]
 script = ExtResource("1_ptm0r")
 bullet_scene = ExtResource("2_xqb2f")
+bullets_per_second = 60
+max_bullets = 1000
 bullet_type = 1

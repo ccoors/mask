@@ -14,6 +14,8 @@ config/name="Elektrisches Maskenspiel"
 config/version="0.0.1"
 run/main_scene="uid://cowu2jgeg1mu7"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/stretch_mode=0
+boot_splash/image="uid://dsy5b4cl2v58l"
 config/icon="uid://duhwsatrqy7s5"
 
 [autoload]
@@ -86,8 +88,6 @@ mask_3={
 2d_physics/layer_2="mask_1"
 2d_physics/layer_3="mask_2"
 2d_physics/layer_4="mask_3"
-2d_physics/layer_5="mask_4"
-2d_physics/layer_6="mask_5"
 
 [physics]
 

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dkq3tiswraqgs" path="res://scenes/items/health_item.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://crwim327e0ulb" path="res://scenes/pollen_emitter.tscn" id="4_2r41h"]
 [ext_resource type="Script" path="res://scripts/item_generator.gd" id="4_mx8sn"]
-[ext_resource type="Script" uid="uid://b4yi58ufrd05g" path="res://scripts/bullet_emitter.gd" id="5_b121j"]
 [ext_resource type="PackedScene" uid="uid://e8du2lkwh4tb" path="res://scenes/spark_emitter.tscn" id="5_klq6b"]
 [ext_resource type="PackedScene" uid="uid://dx6bh6uu2shty" path="res://scenes/bubble_emitter.tscn" id="6_b121j"]
 
@@ -23,7 +22,6 @@ _seed = 4211564508
 
 [node name="PollenEmitter" parent="." unique_id=1281906041 instance=ExtResource("4_2r41h")]
 position = Vector2(1086, -98)
-script = ExtResource("5_b121j")
 
 [node name="SparkEmitter" parent="." unique_id=1328994863 instance=ExtResource("5_klq6b")]
 position = Vector2(1456, -402)

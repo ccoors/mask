@@ -16,11 +16,8 @@ func setup(
 	global_position = pos
 	direction = dir
 	bullet = bullet_data
-	_set_texture()
-	
-func _set_texture():
-	var sprite := $Sprite2D
-	sprite.texture = bullet.texture
+	$Sprite2D.texture = bullet.texture
+	collision_layer = (1 << bullet.collision_mask)
 	
 func _ready():
 	await get_tree().create_timer(bullet.lifetime).timeout
@@ -35,15 +32,13 @@ func _process(delta):
 	# air noise
 	if bullet.noise_strength > 0.0:
 		var angle = randf() * TAU
-		velocity += Vector2.from_angle(angle) * bullet.noise_strength * delta
-		
-	# friction
-	velocity *= bullet.damping
+		velocity += Vector2.from_angle(angle) * bullet.noise_strength
 	
 	position += velocity * delta
-	print(position)
 
 func _on_body_entered(body):
-	if body.has_method("take_damage"):
-		body.take_damage(damage)
+	print('collision with', body)
+	print(collision_mask , body.collision_layer)
+	if body.has_method("hit"):
+		body.hit()
 	queue_free()
