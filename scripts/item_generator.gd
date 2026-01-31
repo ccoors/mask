@@ -51,18 +51,18 @@ func gen_map():
     noise.frequency = 0.5
     noise.fractal_lacunarity = 2
     noise.fractal_octaves = 3
-    var last: Array[Vector2i] = []
+    # var last: Array[Vector2i] = []
     var halfsize = ceil(float(size)/2)
     for y in range(-halfsize, halfsize):
         for x in range(-halfsize, halfsize):
             if (noise.get_noise_2d(x, y) + 0.5) < perlin_threshold:
                 continue
-            if is_close(last, Vector2i(x, y)):
-                continue
-            last.append(Vector2i(x, y))
+            #if is_close(last, Vector2i(x, y)):
+            #    continue
+            #last.append(Vector2i(x, y))
             var obst = SteinResource.instantiate()
             obst.mask_id = randi() % 3
-            obst.position = Vector2(x*50, y*50)
+            obst.position = Vector2(x * GLOBALS.TILE_WIDTH/2, y * GLOBALS.TILE_WIDTH/2)
             
             add_child(obst)
     print("Item generation done")

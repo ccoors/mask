@@ -3,6 +3,8 @@ extends Node
 var mask_idx: int = 0
 signal mask_changed(idx: int)
 
+const TILE_WIDTH:int = 120
+
 const MASKS = [
     {
         "name": "Lava mask",

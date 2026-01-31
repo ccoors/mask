@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bu2asn3rttoff" path="res://scenes/tiles.tscn" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dkq3tiswraqgs" path="res://scenes/items/health_item.tscn" id="3_w8frs"]
-[ext_resource type="Script" path="res://scripts/item_generator.gd" id="4_mx8sn"]
+[ext_resource type="Script" uid="uid://c3e4dnol1btq5" path="res://scripts/item_generator.gd" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://c11p5qlq846in" path="res://scenes/items/katzenfutter.tscn" id="4_ppgk2"]
 
 [node name="level" type="Node2D" unique_id=77777411]
@@ -14,8 +14,9 @@ position = Vector2(81, -410)
 
 [node name="item_spawn" type="Node2D" parent="." unique_id=1616170235]
 script = ExtResource("4_mx8sn")
-min_dist = 4
-_seed = 48291795
+min_dist = 6
+_seed = 2281363599
+perlin_threshold = 0.88
 
 [node name="katzenfutter" parent="." unique_id=249892470 instance=ExtResource("4_ppgk2")]
 position = Vector2(-594, -421)
