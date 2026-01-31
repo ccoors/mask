@@ -15,7 +15,7 @@ func hit():
     health -= 1
     health = max(0, health)
     if health == 0:
-        get_tree().change_scene_to_file("res://scenes/intermediate/lose_screen.tscn")
+        call_deferred("exit_loose")
         return
     health_changed.emit(health)
 
@@ -23,8 +23,14 @@ func heal():
     health += 1
     health_changed.emit(health)
 
-func win():
+func exit_win():
     get_tree().change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
+
+func exit_loose():
+    get_tree().change_scene_to_file("res://scenes/intermediate/loose_screen.tscn")
+
+func win():
+    call_deferred("exit_win")
 
 func set_mask(idx: int) -> void:
     var mask = GLOBALS.MASKS[idx]
