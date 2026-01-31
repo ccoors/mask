@@ -10,7 +10,7 @@
 shader = ExtResource("4_gubc5")
 shader_parameter/inner_radius = 0.2
 shader_parameter/outer_radius = 0.7
-shader_parameter/vignette_strength = 0.1
+shader_parameter/vignette_strength = 0.5
 shader_parameter/vignette_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Environment" id="Environment_gubc5"]
