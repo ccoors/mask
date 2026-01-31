@@ -20,6 +20,7 @@ text = "Current Mask:"
 
 [node name="health_display" type="TextureRect" parent="." unique_id=1988670441]
 unique_name_in_owner = true
+modulate = Color(1, 0.20999998, 0.20999998, 1)
 texture_filter = 1
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
