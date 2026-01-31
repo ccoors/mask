@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://coeqlhbyqq13y"]
 
-[ext_resource type="PackedScene" uid="uid://dagc7aeddyrf4" path="res://scenes/stein.tscn" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://bu2asn3rttoff" path="res://scenes/tiles.tscn" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dkq3tiswraqgs" path="res://scenes/items/health_item.tscn" id="3_w8frs"]
 [ext_resource type="Script" uid="uid://c3e4dnol1btq5" path="res://scripts/item_generator.gd" id="4_mx8sn"]
@@ -8,21 +7,6 @@
 [node name="level" type="Node2D" unique_id=77777411]
 
 [node name="tiles" parent="." unique_id=1513846017 instance=ExtResource("1_w7c3h")]
-visible = false
-
-[node name="Sprite2D" parent="." unique_id=281077795 instance=ExtResource("1_2q6dc")]
-position = Vector2(408, 193)
-
-[node name="Sprite2D2" parent="." unique_id=2068476046 instance=ExtResource("1_2q6dc")]
-position = Vector2(228, -179)
-
-[node name="Sprite2D3" parent="." unique_id=544800915 instance=ExtResource("1_2q6dc")]
-position = Vector2(-281, 198)
-mask_id = 2
-
-[node name="Sprite2D4" parent="." unique_id=674951328 instance=ExtResource("1_2q6dc")]
-position = Vector2(-276, -206)
-mask_id = 0
 
 [node name="health_item" parent="." unique_id=879146623 instance=ExtResource("3_w8frs")]
 position = Vector2(81, -410)
