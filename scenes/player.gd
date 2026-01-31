@@ -15,8 +15,8 @@ func hit():
     health -= 1
     health = max(0, health)
     if health == 0:
-        # TODO: Die
-        pass
+        get_tree().change_scene_to_file("res://scenes/intermediate/lose_screen.tscn")
+        return
     health_changed.emit(health)
 
 func heal():
@@ -24,7 +24,7 @@ func heal():
     health_changed.emit(health)
 
 func win():
-    # TODO: Win
+    get_tree().change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
     pass
 
 func set_mask(idx: int) -> void:
