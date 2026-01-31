@@ -12,20 +12,21 @@ func _ready() -> void:
 	health_changed.emit(health)
 
 func hit():
-	health -= 1
-	health = max(0, health)
-	if health == 0:
-		# TODO: Die
-		pass
-	health_changed.emit(health)
+
+    health -= 1
+    health = max(0, health)
+    if health == 0:
+        get_tree().change_scene_to_file("res://scenes/intermediate/lose_screen.tscn")
+        return
+    health_changed.emit(health)
 
 func heal():
 	health += 1
 	health_changed.emit(health)
 
 func win():
-	# TODO: Win
-	pass
+    get_tree().change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
+    pass
 
 func set_mask(idx: int) -> void:
 	var mask = GLOBALS.MASKS[idx]
@@ -59,4 +60,5 @@ func _physics_process(delta: float) -> void:
 	if direction.x:
 		rotation += ROTATION_SPEED * delta * direction.x
 
-	move_and_slide()
+
+    move_and_slide()

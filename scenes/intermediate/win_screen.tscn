@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c6afaq1ti03qf"]
+
+[ext_resource type="Script" uid="uid://cbbd1eqdxjcpe" path="res://scenes/intermediate/script.gd" id="1_sr1ad"]
+
+[node name="lose_screen" type="ColorRect" unique_id=994558203]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_sr1ad")
+
+[node name="Label" type="Label" parent="." unique_id=69712886]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 406
+text = "You won."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="Button" parent="." unique_id=1212041758]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = 310.0
+offset_right = 116.0
+offset_bottom = 406.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Restart"
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
