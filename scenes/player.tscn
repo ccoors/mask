@@ -62,7 +62,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
-size = Vector2(156, 174)
+size = Vector2(134, 144)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1887347588]
 motion_mode = 1
@@ -72,7 +72,7 @@ script = ExtResource("1_3vyb7")
 unique_name_in_owner = true
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
@@ -97,4 +97,5 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "9fa9e9ed57afc8476d7779cf6b72f547"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=323642208]
+position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_3vyb7")
