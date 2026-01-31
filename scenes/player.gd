@@ -12,12 +12,19 @@ func _ready() -> void:
 	health_changed.emit(health)
 
 func hit():
+	quack()
 	health -= 1
 	health = max(0, health)
 	if health == 0:
 		call_deferred("exit_loose")
 		return
 	health_changed.emit(health)
+	
+func quack():
+	var audio_stream_player := $AudioStreamPlayer2D
+	audio_stream_player.max_polyphony = health
+	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
+	audio_stream_player.play()
 
 func heal():
 	health += 1
