@@ -30,6 +30,10 @@ script = ExtResource("1_7ykc4")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1289979088]
 ignore_rotation = false
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 20.0
 
 [node name="ShaderLayer" type="CanvasLayer" parent="player/Camera2D" unique_id=308023886]
 
