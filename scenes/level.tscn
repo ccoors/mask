@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://coeqlhbyqq13y"]
 
 [ext_resource type="PackedScene" uid="uid://dagc7aeddyrf4" path="res://scenes/stein.tscn" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://bu2asn3rttoff" path="res://scenes/tiles.tscn" id="1_w7c3h"]
 
 [node name="level" type="Node2D" unique_id=77777411]
+
+[node name="tiles" parent="." unique_id=1513846017 instance=ExtResource("1_w7c3h")]
 
 [node name="Sprite2D" parent="." unique_id=281077795 instance=ExtResource("1_2q6dc")]
 position = Vector2(408, 193)
