@@ -12,7 +12,7 @@ const BulletType = preload("res://scripts/bullet_type.gd").BulletType
 
 var BulletData = {
 	BulletType.POLLEN: Bullet.new(
-		1.0, 0.98, 10.0, 10.0,
+		3.0, 0.98, 10.0, 90.0,
 		preload("res://assets/sprites/pollen.png"),
 		Vector2.ZERO
 	),
@@ -61,6 +61,5 @@ func _spawn_bullet():
 		BulletData[bullet_type],
 	)
 	
-	
-	add_child(bullet)
+	get_tree().current_scene.add_child(bullet)
 	

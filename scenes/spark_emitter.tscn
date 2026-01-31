@@ -1,8 +1,9 @@
-[gd_scene format=3 uid="uid://crwim327e0ulb"]
+[gd_scene format=3 uid="uid://e8du2lkwh4tb"]
 
 [ext_resource type="Script" uid="uid://b4yi58ufrd05g" path="res://scripts/bullet_emitter.gd" id="1_fivus"]
 [ext_resource type="PackedScene" uid="uid://b636dbc8vlyso" path="res://scenes/bullet.tscn" id="2_leji1"]
 
-[node name="BulletEmitter" type="Node2D" unique_id=1328994863]
+[node name="SparkEmitter" type="Node2D" unique_id=1328994863]
 script = ExtResource("1_fivus")
 bullet_scene = ExtResource("2_leji1")
+bullet_type = 2

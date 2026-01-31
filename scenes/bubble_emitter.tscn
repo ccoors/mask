@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dx6bh6uu2shty"]
+
+[ext_resource type="Script" uid="uid://b4yi58ufrd05g" path="res://scripts/bullet_emitter.gd" id="1_ptm0r"]
+[ext_resource type="PackedScene" uid="uid://b636dbc8vlyso" path="res://scenes/bullet.tscn" id="2_xqb2f"]
+
+[node name="BubbleEmitter" type="Node2D" unique_id=1328994863]
+script = ExtResource("1_ptm0r")
+bullet_scene = ExtResource("2_xqb2f")
+bullet_type = 1
