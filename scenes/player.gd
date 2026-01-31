@@ -8,25 +8,33 @@ const ROTATION_SPEED = 5;
 @export var health: int = 10
 
 func _ready() -> void:
-	set_mask(0)
-	health_changed.emit(health)
+    set_mask(0)
+    health_changed.emit(health)
 
 func hit():
-
-	health -= 1
-	health = max(0, health)
-	if health == 0:
-		get_tree().change_scene_to_file("res://scenes/intermediate/lose_screen.tscn")
-		return
-	health_changed.emit(health)
+    health -= 1
+    health = max(0, health)
+    if health == 0:
+        call_deferred("exit_loose")
+        return
+    health_changed.emit(health)
 
 func heal():
-	health += 1
-	health_changed.emit(health)
+    health += 1
+    health_changed.emit(health)
+
+func exit_win():
+    var tree = get_tree()
+    if tree:
+        tree.change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
+
+func exit_loose():
+    var tree = get_tree()
+    if tree:
+        tree.change_scene_to_file("res://scenes/intermediate/loose_screen.tscn")
 
 func win():
-	get_tree().change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
-	pass
+    call_deferred("exit_win")
 
 func set_mask(idx: int) -> void:
 	var mask = GLOBALS.MASKS[idx]
@@ -38,26 +46,26 @@ func set_mask(idx: int) -> void:
 	collision_mask = set_cmask
 
 func _process(_delta: float) -> void:
-	for n in range(GLOBALS.MASKS.size()):
-		if Input.is_action_just_pressed(GLOBALS.MASKS[n]["input_action"]):
-			set_mask(n)
+    for n in range(GLOBALS.MASKS.size()):
+        if Input.is_action_just_pressed(GLOBALS.MASKS[n]["input_action"]):
+            set_mask(n)
 
 func _physics_process(delta: float) -> void:
-	var direction := Vector2(
-		Input.get_axis("left", "right"),
-		Input.get_axis("up", "down"),
-	)
-	if direction.y:
-		velocity = Vector2(
-			-direction.y * SPEED * sin(rotation),
-			direction.y * SPEED * cos(rotation),
-		)
-		%AnimatedSprite2D.play("run")
-	else:
-		velocity = Vector2.ZERO
-		%AnimatedSprite2D.play("idle")
-	if direction.x:
-		rotation += ROTATION_SPEED * delta * direction.x
+    var direction := Vector2(
+        Input.get_axis("left", "right"),
+        Input.get_axis("up", "down"),
+    )
+    if direction.y:
+        velocity = Vector2(
+            -direction.y * SPEED * sin(rotation),
+            direction.y * SPEED * cos(rotation),
+        )
+        %AnimatedSprite2D.play("run")
+    else:
+        velocity = Vector2.ZERO
+        %AnimatedSprite2D.play("idle")
+    if direction.x:
+        rotation += ROTATION_SPEED * delta * direction.x
 
 
 	move_and_slide()
