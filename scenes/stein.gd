@@ -4,6 +4,13 @@ extends Sprite2D
 
 func _ready():
     update_mask_id()
+    GLOBALS.mask_changed.connect(mask_changed)
+
+func mask_changed(idx: int):
+    if idx == mask_id:
+        modulate.a = 0.3
+    else:
+        modulate.a = 1.0
 
 func update_mask_id():
     var mask = GLOBALS.MASKS[mask_id]
