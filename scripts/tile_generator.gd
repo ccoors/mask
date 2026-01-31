@@ -23,6 +23,7 @@ func randomize_seed():
 
 func gen_map() -> void:
     clear()
+    print("Recreate tiles...")
     var noise = FastNoiseLite.new()
     noise.seed = _seed
     noise.noise_type = FastNoiseLite.TYPE_PERLIN
@@ -37,3 +38,4 @@ func gen_map() -> void:
             if tile_id > 2:
                 tile_id = 2
             set_cell(Vector2i(x, y), tile_id, Vector2i.ZERO)
+    print("Tile generation done")

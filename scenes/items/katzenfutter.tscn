@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c11p5qlq846in"]
+
+[ext_resource type="Script" uid="uid://c7ww7a044jx6d" path="res://scenes/items/katzenfutter.gd" id="1_eyl24"]
+[ext_resource type="PackedScene" uid="uid://2ch8fwhywnws" path="res://assets/art/katzenfutter.glb" id="1_o54j2"]
+
+[sub_resource type="Environment" id="Environment_eyl24"]
+background_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyl24"]
+transparency = 1
+shadow_to_opacity = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_eyl24"]
+material = SubResource("StandardMaterial3D_eyl24")
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyl24"]
+size = Vector2(156, 214)
+
+[node name="Katzenfutter" type="Sprite2D" unique_id=249892470]
+script = ExtResource("1_eyl24")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=284913059]
+unique_name_in_owner = true
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=229188541]
+transform = Transform3D(1, 0, 0, 0, 0.972002, 0.23497248, 0, -0.23497248, 0.972002, 0, 2.771538, 3.3945112)
+environment = SubResource("Environment_eyl24")
+
+[node name="katzenfutter" parent="SubViewport" unique_id=2114228911 instance=ExtResource("1_o54j2")]
+unique_name_in_owner = true
+
+[node name="OmniLight3D" type="SpotLight3D" parent="SubViewport" unique_id=2020113021]
+transform = Transform3D(0.53967464, -0.6555189, 0.5282486, 0.26654702, 0.7282323, 0.6313721, -0.79856384, -0.19993234, 0.5677349, 2.3818104, 3.5141988, 1.9014869)
+light_energy = 10.78
+shadow_enabled = true
+spot_range = 20.920801
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=24826142]
+mesh = SubResource("PlaneMesh_eyl24")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D" unique_id=1186841295]
+transform = Transform3D(0.9999754, 0, -0.0070161656, 0, 1, 0, 0.0070161656, 0, 0.9999754, -2.6117883, 1.4903657, 1.5202258)
+omni_range = 9.535432
+
+[node name="Area2D" type="Area2D" parent="." unique_id=178763661]
+
+[node name="detection" type="CollisionShape2D" parent="Area2D" unique_id=1782008125]
+shape = SubResource("RectangleShape2D_eyl24")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_detection_body_entered"]
+
+[editable path="SubViewport/katzenfutter"]

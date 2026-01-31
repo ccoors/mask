@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://canf8l0o81yey" path="res://scenes/player.tscn" id="1_w2twt"]
 [ext_resource type="PackedScene" uid="uid://coeqlhbyqq13y" path="res://scenes/level.tscn" id="2_gubc5"]
 [ext_resource type="PackedScene" uid="uid://cd1n8io8yoe1u" path="res://scenes/ui.tscn" id="2_pw63i"]
+[ext_resource type="AudioStream" uid="uid://785638cmwoog" path="res://assets/music/ElektrischeHintergrundmusik.ogg" id="2_rt2n2"]
 [ext_resource type="Shader" uid="uid://daml0425ewole" path="res://assets/shaders/tint.gdshader" id="4_gubc5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gubc5"]
@@ -24,10 +25,10 @@ glow_hdr_threshold = 0.54
 [node name="Main" type="Node2D" unique_id=449981256]
 script = ExtResource("1_7ykc4")
 
-[node name="CharacterBody2D" parent="." unique_id=1887347588 instance=ExtResource("1_w2twt")]
-position = Vector2(93, 130)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1958846114]
+[node name="ElektrischeHintergrundmusik" type="AudioStreamPlayer" parent="." unique_id=1021859514]
+stream = ExtResource("2_rt2n2")
+volume_db = -6.0
+autoplay = true
 
 [node name="level" parent="." unique_id=77777411 instance=ExtResource("2_gubc5")]
 
