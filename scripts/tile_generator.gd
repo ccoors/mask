@@ -33,7 +33,7 @@ func gen_map() -> void:
     for y in range(-halfsize, halfsize):
         for x in range(-halfsize, halfsize):
             var val = noise.get_noise_2d(x, y)
-            var tileId = round(abs(val) * 5);
-            if tileId > 2:
-                tileId = 2
-            set_cell(Vector2i(x, y), tileId, Vector2i.ZERO)
+            var tile_id = round(abs(val) * 5);
+            if tile_id > 2:
+                tile_id = 2
+            set_cell(Vector2i(x, y), tile_id, Vector2i.ZERO)
