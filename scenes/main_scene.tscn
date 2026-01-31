@@ -4,14 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://canf8l0o81yey" path="res://scenes/player.tscn" id="1_w2twt"]
 [ext_resource type="PackedScene" uid="uid://coeqlhbyqq13y" path="res://scenes/level.tscn" id="2_gubc5"]
 [ext_resource type="PackedScene" uid="uid://cd1n8io8yoe1u" path="res://scenes/ui.tscn" id="2_pw63i"]
-[ext_resource type="Shader" uid="uid://daml0425ewole" path="res://assets/shaders/tint.gdshader" id="4_pu3yx"]
-[ext_resource type="PackedScene" uid="uid://crwim327e0ulb" path="res://scenes/spark_emitter.tscn" id="6_rt2n2"]
+[ext_resource type="Shader" uid="uid://daml0425ewole" path="res://assets/shaders/tint.gdshader" id="4_gubc5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gubc5"]
-shader = ExtResource("4_pu3yx")
-shader_parameter/inner_radius = 0.1
-shader_parameter/outer_radius = 1.0
-shader_parameter/vignette_strength = 1.0
+shader = ExtResource("4_gubc5")
+shader_parameter/inner_radius = 0.2
+shader_parameter/outer_radius = 0.7
+shader_parameter/vignette_strength = 0.1
 shader_parameter/vignette_color = Color(0, 0, 0, 0)
 
 [node name="Main" type="Node2D" unique_id=449981256]
@@ -29,9 +28,9 @@ position = Vector2(93, 130)
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1289979088]
 ignore_rotation = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="player/Camera2D" unique_id=308023886]
+[node name="ShaderLayer" type="CanvasLayer" parent="player/Camera2D" unique_id=308023886]
 
-[node name="ColorRect" type="ColorRect" parent="player/Camera2D/CanvasLayer" unique_id=181209170]
+[node name="ColorRect" type="ColorRect" parent="player/Camera2D/ShaderLayer" unique_id=181209170]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_gubc5")
 anchors_preset = 15
@@ -41,7 +40,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="UI" parent="player/Camera2D" unique_id=1718296178 instance=ExtResource("2_pw63i")]
+[node name="UILayer" type="CanvasLayer" parent="player/Camera2D" unique_id=818402095]
+layer = 2
+offset = Vector2(960, 540)
+transform = Transform2D(1, 0, 0, 1, 960, 540)
+
+[node name="UI" parent="player/Camera2D/UILayer" unique_id=1718296178 instance=ExtResource("2_pw63i")]
 unique_name_in_owner = true
 anchors_preset = 0
 anchor_right = 0.0
@@ -49,11 +53,8 @@ anchor_bottom = 0.0
 offset_left = -960.0
 offset_top = -540.0
 offset_right = -741.0
-offset_bottom = -495.0
+offset_bottom = -459.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="SparkEmitter" parent="." unique_id=1328994863 instance=ExtResource("6_rt2n2")]
-position = Vector2(329, 468)
-
-[connection signal="mask_changed" from="player" to="." method="_on_player_mask_changed"]
+[connection signal="health_changed" from="player" to="player/Camera2D/UILayer/UI" method="update_health"]
