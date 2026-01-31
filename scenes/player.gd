@@ -23,6 +23,10 @@ func heal():
     health += 1
     health_changed.emit(health)
 
+func win():
+    # TODO: Win
+    pass
+
 func set_mask(idx: int) -> void:
     var mask = GLOBALS.MASKS[idx]
     GLOBALS.change_mask(idx)
@@ -39,7 +43,10 @@ func _process(_delta: float) -> void:
             set_mask(n)
 
 func _physics_process(delta: float) -> void:
-    var direction := Input.get_vector("left", "right", "up", "down")
+    var direction := Vector2(
+        Input.get_axis("left", "right"),
+        Input.get_axis("up", "down"),
+    )
     if direction.y:
         velocity = Vector2(
             -direction.y * SPEED * sin(rotation),

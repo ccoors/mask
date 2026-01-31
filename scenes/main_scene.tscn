@@ -32,7 +32,7 @@ autoplay = true
 
 [node name="level" parent="." unique_id=77777411 instance=ExtResource("2_gubc5")]
 
-[node name="player" parent="." unique_id=1887347588 instance=ExtResource("1_w2twt")]
+[node name="player" parent="." unique_id=2041926661 instance=ExtResource("1_w2twt")]
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1289979088]
 ignore_rotation = false
