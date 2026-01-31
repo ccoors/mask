@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://coeqlhbyqq13y" path="res://scenes/level.tscn" id="2_gubc5"]
 [ext_resource type="PackedScene" uid="uid://cd1n8io8yoe1u" path="res://scenes/ui.tscn" id="2_pw63i"]
 [ext_resource type="Shader" uid="uid://daml0425ewole" path="res://assets/shaders/tint.gdshader" id="4_gubc5"]
-[ext_resource type="PackedScene" uid="uid://crwim327e0ulb" path="res://scenes/spark_emitter.tscn" id="6_rt2n2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gubc5"]
 shader = ExtResource("4_gubc5")
@@ -58,4 +57,4 @@ offset_bottom = -459.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="SparkEmitter" parent="." unique_id=1328994863 instance=ExtResource("6_rt2n2")]
+[connection signal="health_changed" from="player" to="player/Camera2D/UILayer/UI" method="update_health"]

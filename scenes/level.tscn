@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://dagc7aeddyrf4" path="res://scenes/stein.tscn" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://bu2asn3rttoff" path="res://scenes/tiles.tscn" id="1_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://crwim327e0ulb" path="res://scenes/bullet_emitter.tscn" id="3_w8frs"]
 
 [node name="level" type="Node2D" unique_id=77777411]
 
 [node name="tiles" parent="." unique_id=1513846017 instance=ExtResource("1_w7c3h")]
+position = Vector2(-1477, 718)
 
 [node name="Sprite2D" parent="." unique_id=281077795 instance=ExtResource("1_2q6dc")]
 position = Vector2(408, 193)
@@ -20,3 +22,14 @@ mask_id = 2
 [node name="Sprite2D4" parent="." unique_id=674951328 instance=ExtResource("1_2q6dc")]
 position = Vector2(-276, -206)
 mask_id = 0
+
+[node name="PollenEmitter" parent="." unique_id=1328994863 instance=ExtResource("3_w8frs")]
+position = Vector2(-11, 236)
+
+[node name="SparkEmitter" parent="." unique_id=1179411259 instance=ExtResource("3_w8frs")]
+position = Vector2(-5, 45)
+bullet_type = 2
+
+[node name="BubbleEmitter" parent="." unique_id=1047137646 instance=ExtResource("3_w8frs")]
+position = Vector2(-7, 154)
+bullet_type = 1

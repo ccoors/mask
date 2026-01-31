@@ -8,26 +8,26 @@ const ROTATION_SPEED = 5;
 @export var health: int = 10
 
 func _ready() -> void:
-    set_mask(0)
-    health_changed.emit(health)
+	set_mask(0)
+	health_changed.emit(health)
 
 func hit():
-    health -= 1
-    health = max(0, health)
-    if health == 0:
-        # TODO: Die
-        pass
-    health_changed.emit(health)
+	health -= 1
+	health = max(0, health)
+	if health == 0:
+		# TODO: Die
+		pass
+	health_changed.emit(health)
 
 func set_mask(idx: int) -> void:
-    var mask = GLOBALS.MASKS[idx]
-    GLOBALS.change_mask(idx)
-    var set_cmask = 0
-    for i in range(5):
-        if mask["collision_mask"] != i:
-            set_cmask |= (1 << i)
-    collision_mask = set_cmask
-    hit()
+	var mask = GLOBALS.MASKS[idx]
+	GLOBALS.change_mask(idx)
+	var set_cmask = 0
+	for i in range(5):
+		if mask["collision_mask"] != i:
+			set_cmask |= (1 << i)
+	collision_mask = set_cmask
+	hit()
 
 func _process(_delta: float) -> void:
 	for n in range(GLOBALS.MASKS.size()):

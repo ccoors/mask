@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://b636dbc8vlyso"]
 
-[ext_resource type="Script" uid="uid://bus11legt55dr" path="res://scripts/bullet.gd" id="1_eoqba"]
-[ext_resource type="Texture2D" uid="uid://d02jk8kujgv4h" path="res://assets/sprites/pollen.png" id="2_qncy5"]
-[ext_resource type="Texture2D" uid="uid://cymcyx25aps2g" path="res://assets/sprites/bubble.png" id="3_tamys"]
-[ext_resource type="Texture2D" uid="uid://b4gmxcn81piwn" path="res://assets/sprites/spark.png" id="4_26lx3"]
+[ext_resource type="Script" uid="uid://bus11legt55dr" path="res://scripts/bullet_area.gd" id="1_eoqba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkf8s"]
+size = Vector2(16, 16)
 
 [node name="Bullet" type="Area2D" unique_id=162749195]
 script = ExtResource("1_eoqba")
-pollen_texture = ExtResource("2_qncy5")
-bubble_texture = ExtResource("3_tamys")
-spark_texture = ExtResource("4_26lx3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1737051676]
+shape = SubResource("RectangleShape2D_mkf8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1471414814]
