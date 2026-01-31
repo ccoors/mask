@@ -23,6 +23,10 @@ func heal():
     health += 1
     health_changed.emit(health)
 
+func win():
+    # TODO: Win
+    pass
+
 func set_mask(idx: int) -> void:
     var mask = GLOBALS.MASKS[idx]
     GLOBALS.change_mask(idx)
