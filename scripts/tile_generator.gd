@@ -5,12 +5,13 @@ class_name TileGenerator
 
 @export_tool_button("Recreate Map") var execute_action = gen_map
 
-@export var _seed: int = 0:
-	set(value):
-		_seed = value
-		gen_map()
+@export var _seed: int = 0
 
 @export_tool_button("Randomize seed", "RandomNumberGenerator") var randomize_seed_action = randomize_seed
+
+func _ready():
+	randomize_seed()
+	gen_map()
 
 func randomize_seed():
 	_seed = randi()

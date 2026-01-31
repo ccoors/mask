@@ -10,33 +10,23 @@ const SteinResource = preload("res://scenes/stein.tscn")
 
 const Emitter = [PollenEmitter, SparkEmitter, BubbleEmitter]
 
-@export var size: int = 128:
-	set(value):
-		if value > 0:
-			size = value
-			gen_map()
+@export var size: int = 128
 
-@export var emitter_spawn: int = 20:
-	set(value):
-		if value > 0:
-			emitter_spawn = value
-			gen_map()
+@export var emitter_spawn: int = 20
 
 @export_tool_button("Recreate Map") var execute_action = gen_map
 
-@export var _seed: int = 0:
-	set(value):
-		_seed = value
-		gen_map()
+@export var _seed: int = 0
 
-@export var perlin_threshold: float = 0.75:
-	set(value):
-		perlin_threshold = value
-		gen_map()
+@export var perlin_threshold: float = 0.75
 
 @export var obstacles: Array[Node3D] = []
 
 @export_tool_button("Randomize seed", "RandomNumberGenerator") var randomize_seed_action = randomize_seed
+
+func _ready():
+	randomize_seed()
+	gen_map()
 
 func randomize_seed():
 	_seed = randi()

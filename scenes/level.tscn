@@ -19,8 +19,7 @@ position = Vector2(81, -410)
 
 [node name="item_spawn" type="Node2D" parent="." unique_id=1616170235]
 script = ExtResource("4_mx8sn")
-min_dist = 6
-_seed = 2281363599
+_seed = 2927921549
 perlin_threshold = 0.88
 
 [node name="katzenfutter" parent="." unique_id=249892470 instance=ExtResource("4_ppgk2")]
