@@ -27,6 +27,7 @@ frame = 1
 frame_progress = 0.11598874
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D" unique_id=723655608]
+collision_layer = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/StaticBody2D" unique_id=1256677515]
 polygon = PackedVector2Array(85, -263.7, 45.699997, -280, -24.199997, -280, -86, -264, -118, -120, -120, -40.699997, -120, -16.5, -102, 50, -111.6, 101, -120, 130.70001, -120, 159.6, -112.7, 199.20001, -59.9, 268, 0, 236, 54, 268, 92, 230, 116, 174, 112, 104, 92, 32, 122, -18, 117, -129.6, 117, -153.5)

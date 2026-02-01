@@ -24,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.0031667326, 0.15742818, 0.15984464, 1)
 script = ExtResource("1_ugn2k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1577670100]
@@ -174,15 +174,18 @@ theme_override_font_sizes/font_size = 50
 text = "Start"
 
 [node name="AnimatedSprite2D" parent="." unique_id=2120696688 instance=ExtResource("14_oto6l")]
-position = Vector2(235, 253)
-scale = Vector2(2, 2)
+position = Vector2(224, 258)
+scale = Vector2(1.5614754, 1.5614754)
+animation = &"idle"
+frame_progress = 0.0
 
-[node name="Label" type="Label" parent="AnimatedSprite2D" unique_id=83429160]
-offset_left = 94.0
-offset_top = -80.0
-offset_right = 408.0
-offset_bottom = -46.0
-theme_override_font_sizes/font_size = 24
+[node name="Label" type="Label" parent="." unique_id=83429160]
+layout_mode = 0
+offset_left = 399.7787
+offset_top = 129.08197
+offset_right = 713.7787
+offset_bottom = 163.08197
+theme_override_font_sizes/font_size = 46
 text = "Oh my gosh, I'm so hungry!"
 
 [node name="Katzenfutter" parent="." unique_id=249892470 instance=ExtResource("15_cqciu")]

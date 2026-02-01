@@ -11,18 +11,21 @@ const MASKS = [
 		"input_action": "mask_1",
 		"color": Color(0.661, 0.143, 0.077, 1.0),
 		"collision_mask": 2,
+		"mask_animation": "firemask",
 	},
 	{
 		"name": "Wood mask",
 		"input_action": "mask_2",
 		"color": Color(0.373, 0.613, 0.0, 1.0),
 		"collision_mask": 3,
+		"mask_animation": "leavemask",
 	},
 	{
 		"name": "Water mask",
 		"input_action": "mask_3",
 		"color": Color(0.0, 0.578, 0.805, 1.0),
 		"collision_mask": 4,
+		"mask_animation": "watermask",
 	},
 ]
 
