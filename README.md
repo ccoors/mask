@@ -2,6 +2,7 @@
 
 Our game for the [Global Game Jam 2026](https://globalgamejam.org/).
 
-## Used third-party assets
+## Used third-party assets/tools
 
 - [Kenney Input Prompts (CC0)](https://kenney.nl/assets/input-prompts)
+- [Godot Aseprite Wizard](https://github.com/viniciusgerevini/godot-aseprite-wizard)
