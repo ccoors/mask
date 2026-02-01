@@ -5,6 +5,7 @@
 [node name="Bigfoot" type="Node2D" unique_id=495262531]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1314466446]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_sxbrb")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=914637993]
