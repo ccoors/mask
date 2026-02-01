@@ -10,7 +10,6 @@ var accumulator = 0.0
 func maybe_duplicate(delta: float) -> void:
 	accumulator += delta
 	if accumulator >= 0.04:
-		print("Dupl")
 		var dupl = %Label.duplicate()
 		dupl.z_index = 2
 		dupl.add_theme_constant_override("outline_size", 15)
