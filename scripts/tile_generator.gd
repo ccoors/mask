@@ -5,22 +5,29 @@ class_name TileGenerator
 
 @export_tool_button("Recreate Map") var execute_action = gen_map
 
-@export var _seed: int = 0
+var _last_pos: Vector2i = Vector2i(-1, -1)
 
-@export_tool_button("Randomize seed", "RandomNumberGenerator") var randomize_seed_action = randomize_seed
+func _on_player_change(pos: Vector2):
+	var tile_pos: Vector2i = local_to_map(pos)
+	if _last_pos != tile_pos:
+		draw_map(tile_pos)
+		_last_pos = tile_pos
 
 func _ready():
-	randomize_seed()
+	get_node("/root/Main/player").position_changed.connect(_on_player_change)
+	setup_noise()
 	gen_map()
 
-func randomize_seed():
-	_seed = randi()
+func setup_noise():
+	noise.seed = randi()
+	noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	noise.frequency = 0.02
+	noise.fractal_lacunarity = 2
+	noise.fractal_octaves = 2
 
-@export var size: int = 128:
-	set(value):
-		if value > 0:
-			gen_map()
-			size = value
+@export var size: Vector2i = Vector2i(20, 20)
+
+var noise = FastNoiseLite.new()
 
 const TILE_TYPE_GRASS: String = "grass"
 const TILE_TYPE_LAVA: String = "lava"
@@ -65,22 +72,35 @@ func _tile_type_to_string(type_id: int) -> String:
 	else:
 		return TILE_TYPE_LAVA
 
-
-func gen_map() -> void:
-	clear()
-	var noise = FastNoiseLite.new()
-	noise.seed = _seed
-	noise.noise_type = FastNoiseLite.TYPE_PERLIN
-	noise.frequency = 0.02
-	noise.fractal_lacunarity = 2
-	noise.fractal_octaves = 2
-	var halfsize = ceil(float(size)/2)
-	print("Generate Tiles")
-	for y in range(-halfsize, halfsize):
-		for x in range(-halfsize, halfsize):
-			var val = noise.get_noise_2d(x, y)
+func draw_map(pos: Vector2i) -> void:
+	# create area around position
+	var halfsizex = ceil(float(size.x)/2)
+	var halfsizey = ceil(float(size.y)/2)
+	#  TODO: cleanup tiles that are out-of-size
+	for y in range(-halfsizey, halfsizey):
+		for x in range(-halfsizex, halfsizex):
+			if get_cell_tile_data(Vector2i(x + pos.x, y + pos.y)) != null:
+				continue
+			var val = noise.get_noise_2d(x + pos.x, y + pos.y)
 			var tile_type = round(abs(val) * 5);
 			if tile_type > 2:
 				tile_type = 2
-			set_cell(Vector2i(x, y), _get_tile_variation(_tile_type_to_string(tile_type)), Vector2i.ZERO)
-	print(size*size, " tiles generated")
+			set_cell(
+				Vector2i(x + pos.x, y + pos.y),
+				_get_tile_variation(_tile_type_to_string(tile_type)),
+				Vector2i.ZERO)
+
+func gen_map() -> void:
+	clear()
+	draw_map(Vector2(0, 0))
+
+#	var halfsize = ceil(float(size)/2)
+#	print("Generate Tiles")
+#	for y in range(-halfsize, halfsize):
+#		for x in range(-halfsize, halfsize):
+#			var val = noise.get_noise_2d(x, y)
+#			var tile_type = round(abs(val) * 5);
+#			if tile_type > 2:
+#				tile_type = 2
+#			set_cell(Vector2i(x, y), _get_tile_variation(_tile_type_to_string(tile_type)), Vector2i.ZERO)
+#	print(size*size, " tiles generated")

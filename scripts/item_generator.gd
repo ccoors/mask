@@ -20,8 +20,6 @@ const Emitter = [PollenEmitter, SparkEmitter, BubbleEmitter]
 
 @export var perlin_threshold: float = 0.75
 
-@export var obstacles: Array[Node3D] = []
-
 @export_tool_button("Randomize seed", "RandomNumberGenerator") var randomize_seed_action = randomize_seed
 
 func _ready():

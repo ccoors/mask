@@ -1,8 +1,13 @@
 # Global Game Jam 2026
 
-Our game for the [Global Game Jam 2026](https://globalgamejam.org/).
+[Our game for the Global Game Jam 2026](https://globalgamejam.org/games/2026/elektrisches-maskenspiel-8). Built with Godot 4.6.
+
+## Release build instructions
+
+Run `export.sh`, which generates the archive that is uploaded to the GGJ website.
 
 ## Used third-party assets/tools
 
 - [Kenney Input Prompts (CC0)](https://kenney.nl/assets/input-prompts)
+- [Cat image (CC0)](https://www.flickr.com/photos/181765699@N08/51566875862)
 - [Godot Aseprite Wizard](https://github.com/viniciusgerevini/godot-aseprite-wizard)

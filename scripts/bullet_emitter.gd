@@ -58,8 +58,8 @@ func _spawn_bullet():
 		base_rotation -= 360
 	var group_name := "bullet_" + str(bullet_type)
 	
-	if bullet_type == BulletType.BUBBLE:
-		print('spawn_bubble')
+#	if bullet_type == BulletType.BUBBLE:
+#		print('spawn_bubble')
 	
 	if get_tree().get_nodes_in_group(group_name).size() >= max_bullets:
 		return

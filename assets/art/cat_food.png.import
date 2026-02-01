@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6hb11nhat047"
-path.s3tc="res://.godot/imported/katzenfutter_bild-290524-um-1337-211x300.webp-1a57220eca829fe0061547448ec33c2b.s3tc.ctex"
+uid="uid://c1ojoj2cjdvqa"
+path.s3tc="res://.godot/imported/cat_food.png-890585afbc7a49350e690af2caaf8b62.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "edc032f0e0275ed4119cdfbf5f1d555a"
-}
 
 [deps]
 
-source_file="res://assets/art/katzenfutter_bild-290524-um-1337-211x300.webp"
-dest_files=["res://.godot/imported/katzenfutter_bild-290524-um-1337-211x300.webp-1a57220eca829fe0061547448ec33c2b.s3tc.ctex"]
+source_file="res://assets/art/cat_food.png"
+dest_files=["res://.godot/imported/cat_food.png-890585afbc7a49350e690af2caaf8b62.s3tc.ctex"]
 
 [params]
 
