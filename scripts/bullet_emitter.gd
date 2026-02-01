@@ -30,7 +30,7 @@ var BulletData = {
 		preload("res://assets/sprites/spark.png"),
 		Vector2.ZERO,
 		2,
-		BulletType.BUBBLE
+		BulletType.SPARK
 	),
 }
 
@@ -57,6 +57,9 @@ func _spawn_bullet():
 	if base_rotation >= 360:
 		base_rotation -= 360
 	var group_name := "bullet_" + str(bullet_type)
+	
+	if bullet_type == BulletType.BUBBLE:
+		print('spawn_bubble')
 	
 	if get_tree().get_nodes_in_group(group_name).size() >= max_bullets:
 		return
