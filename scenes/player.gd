@@ -28,7 +28,7 @@ func hit():
 	health_changed.emit(health)
 	
 func quack():
-	var audio_stream_player := $AudioStreamPlayer2D
+	var audio_stream_player := $QuackPlayer
 	audio_stream_player.max_polyphony = health
 	audio_stream_player.pitch_scale = randf_range(0.9, 1.1)
 	audio_stream_player.play()
@@ -49,10 +49,14 @@ func speed_down():
 	%AnimatedSprite2D.speed_scale = 1.0
 	
 func shrink():
+	$ShrinkPlayer.play()
+	%AnimationPlayer.play("shrink")
 	scale = Vector2(0.5, 0.5)
 	shrink_timer.start()
 	
 func grow():
+	$UnshrinkPlayer.play()
+	%AnimationPlayer.play("unshrink")
 	scale = Vector2(1.0, 1.0)
 
 func exit_win():
