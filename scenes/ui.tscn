@@ -12,12 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nt7q6")
 
-[node name="mask_label" type="Label" parent="." unique_id=14484612]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "$mask_name$"
-
 [node name="health_display" type="TextureRect" parent="." unique_id=1988670441]
 unique_name_in_owner = true
 modulate = Color(1, 0.20999998, 0.20999998, 1)
