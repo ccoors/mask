@@ -45,8 +45,8 @@ func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	set_random_color()
 	match randi_range(0, 15):
 		1:
-			%AnimationPlayer.play("idle_rotate")
+			%AnimationPlayer.play("idle")
 		2:
 			%AnimationPlayer.play("idle_scale")
 		_:
-			%AnimationPlayer.play("idle")
+			%AnimationPlayer.play("idle_scale")
