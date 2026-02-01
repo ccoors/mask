@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal health_changed(new_health: int)
+signal position_changed(new_position: Vector2)
 
 const SPEED = 500.0
 const ROTATION_SPEED = 5;
@@ -74,5 +75,5 @@ func _physics_process(delta: float) -> void:
 	if direction.x:
 		rotation += ROTATION_SPEED * delta * direction.x
 
-
 	move_and_slide()
+	position_changed.emit(global_position)
