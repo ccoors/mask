@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbbd1eqdxjcpe" path="res://scenes/intermediate/script.gd" id="1_sr1ad"]
 
-[node name="lose_screen" type="ColorRect" unique_id=994558203]
+[node name="win_screen" type="ColorRect" unique_id=994558203]
 custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 15
 anchor_right = 1.0
