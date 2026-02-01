@@ -47,7 +47,7 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Find the cat food. Avoid the bullets.
-Wear the right mask to avoid damage from bullets and pass through obstacles"
+Wear the right mask to avoid damage from bullets and pass through obstacles."
 autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=708143982]
@@ -56,6 +56,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=210561675]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Move:"
 
@@ -135,6 +136,7 @@ alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1079214952]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Change mask:"
 
