@@ -7,15 +7,27 @@ var dolphin = preload("res://scenes/items/dolphin_animation.tscn")
 var last_duplication = 0.0
 var accumulator = 0.0
 
+const rainbow = [
+	Color.RED,
+	Color.ORANGE,
+	Color.YELLOW,
+	Color.GREEN,
+	Color.BLUE,
+	Color.VIOLET,
+	Color.INDIGO
+]
+var rainbow_idx = 0
+
 func maybe_duplicate(delta: float) -> void:
 	accumulator += delta
 	if accumulator >= 0.04:
 		var dupl = %Label.duplicate()
 		dupl.z_index = 2
+		rainbow_idx += 1
 		dupl.begin_bulk_theme_override()
 		dupl.add_theme_constant_override("outline_size", 15)
 		dupl.add_theme_color_override("font_color", Color.TRANSPARENT)
-		dupl.add_theme_color_override("font_outline_color", Color.DEEP_PINK)
+		dupl.add_theme_color_override("font_outline_color", rainbow[rainbow_idx % rainbow.size()])
 		dupl.end_bulk_theme_override()
 		add_child(dupl)
 		var t = get_tree().create_tween()
