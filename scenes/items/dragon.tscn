@@ -94,3 +94,4 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "be0bdcfde1b30458a57db974c2d6b3c6"
 
 [node name="SparkEmitter" parent="." unique_id=1328994863 instance=ExtResource("1_nwtfw")]
+position = Vector2(-111, 40)

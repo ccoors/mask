@@ -8,4 +8,5 @@ script = ExtResource("1_ptm0r")
 bullet_scene = ExtResource("2_xqb2f")
 bullets_per_second = 10
 spread_angle_deg = 40.0
+max_bullets = 900
 bullet_type = 1
