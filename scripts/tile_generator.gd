@@ -6,6 +6,7 @@ class_name TileGenerator
 const Energy = preload("res://scenes/items/energy_drink.tscn")
 const Health = preload("res://scenes/items/health_item.tscn")
 const ObstacleKraken = preload("res://scenes/obstacles/kraken.tscn")
+const Shrink = preload("res://scenes/items/skrinkiedinks.tscn")
 
 
 @export_tool_button("Recreate Map") var execute_action = gen_map
@@ -19,13 +20,15 @@ var noise = FastNoiseLite.new()
 const ITEM_PROBABILITY: Dictionary[String, float] = {
 	"energy": .02,
 	"health": .01,
-	"obstacle": .01
+	"obstacle": .01,
+	"shrink": 0.01
 }
 
 const ITEMS: Dictionary[String, Array]  = {
 	"energy": [Energy],
 	"health":  [Health],
-	"obstacle": [ObstacleKraken, ObstacleKraken, ObstacleKraken]
+	"obstacle": [ObstacleKraken, ObstacleKraken, ObstacleKraken],
+	"shrink": [Shrink]
 }
 
 const TILE_TYPE_GRASS: String = "grass"
