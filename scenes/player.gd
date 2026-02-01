@@ -2,14 +2,19 @@ extends CharacterBody2D
 
 signal health_changed(new_health: int)
 
-const SPEED = 500.0
+var speed = 500.0
 const ROTATION_SPEED = 5;
 
 @export var health: int = 10
 
+@onready var speed_timer: Timer = $SpeedTimer
+
+@onready var background_music_player: AudioStreamPlayer = get_node("/root/Main/ElektrischeHintergrundmusik")
+
 func _ready() -> void:
 	set_mask(0)
 	health_changed.emit(health)
+	speed_timer.timeout.connect(speed_down)
 
 func hit():
 	quack()
@@ -29,6 +34,15 @@ func quack():
 func heal():
 	health += 1
 	health_changed.emit(health)
+	
+func speed_up():
+	speed = 750
+	background_music_player.pitch_scale = 1.5
+	speed_timer.start()
+	
+func speed_down():
+	speed = 500
+	background_music_player.pitch_scale = 1.0
 
 func exit_win():
 	var tree = get_tree()
@@ -64,8 +78,8 @@ func _physics_process(delta: float) -> void:
 	)
 	if direction.y:
 		velocity = Vector2(
-			-direction.y * SPEED * sin(rotation),
-			direction.y * SPEED * cos(rotation),
+			-direction.y * speed * sin(rotation),
+			direction.y * speed * cos(rotation),
 		)
 		%AnimatedSprite2D.play("run")
 	else:

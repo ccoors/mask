@@ -26,6 +26,7 @@ glow_hdr_threshold = 0.54
 script = ExtResource("1_7ykc4")
 
 [node name="ElektrischeHintergrundmusik" type="AudioStreamPlayer" parent="." unique_id=1021859514]
+unique_name_in_owner = true
 stream = ExtResource("2_rt2n2")
 volume_db = -6.0
 autoplay = true
