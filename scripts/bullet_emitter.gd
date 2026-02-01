@@ -63,7 +63,7 @@ func _spawn_bullet():
 	
 	if get_tree().get_nodes_in_group(group_name).size() >= max_bullets:
 		return
-		
+
 	var bullet = bullet_scene.instantiate()
 	
 	var base_direction := Vector2.RIGHT.rotated(deg_to_rad(base_rotation))
