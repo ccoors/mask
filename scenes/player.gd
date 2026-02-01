@@ -39,11 +39,13 @@ func heal():
 func speed_up():
 	speed = 750
 	background_music_player.pitch_scale = 1.5
+	%AnimatedSprite2D.speed_scale = 2.0
 	speed_timer.start()
 	
 func speed_down():
 	speed = 500
 	background_music_player.pitch_scale = 1.0
+	%AnimatedSprite2D.speed_scale = 1.0
 
 func exit_win():
 	if not is_inside_tree():
