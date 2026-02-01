@@ -56,5 +56,5 @@ func _process(delta: float) -> void:
 	if rect.end.y >= screen_size.y:
 		move_vector.y = -abs(move_vector.y)
 	
-	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select"):
+	if Input.is_action_just_pressed("accept"):
 		_on_restart_pressed()

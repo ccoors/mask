@@ -1,7 +1,7 @@
 extends ColorRect
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select"):
+	if Input.is_action_just_pressed("accept"):
 		_on_start_button_button_down()
 
 func _on_start_button_button_down() -> void:
