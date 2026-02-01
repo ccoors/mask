@@ -46,11 +46,15 @@ func speed_down():
 	background_music_player.pitch_scale = 1.0
 
 func exit_win():
+	if not is_inside_tree():
+		return
 	var tree = get_tree()
 	if tree:
 		tree.change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
 
 func exit_loose():
+	if not is_inside_tree():
+		return
 	var tree = get_tree()
 	if tree:
 		tree.change_scene_to_file("res://scenes/intermediate/loose_screen.tscn")
