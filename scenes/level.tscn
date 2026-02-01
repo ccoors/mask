@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c11p5qlq846in" path="res://scenes/items/katzenfutter.tscn" id="4_ppgk2"]
 [ext_resource type="Script" uid="uid://bviglwucilvbv" path="res://scripts/emitter_spawner.gd" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://fr3ygkr1wlbn" path="res://scenes/items/energy_drink.tscn" id="5_ppgk2"]
+[ext_resource type="Script" uid="uid://b4qheq62or5gk" path="res://scripts/winning_spawn.gd" id="6_2r41h"]
 
 [node name="level" type="Node2D" unique_id=77777411]
 
@@ -23,3 +24,6 @@ position = Vector2(-457, 133)
 
 [node name="emitter_spawn" type="Node2D" parent="." unique_id=3876088]
 script = ExtResource("5_2r41h")
+
+[node name="winning_spawn" type="Node2D" parent="." unique_id=978127575]
+script = ExtResource("6_2r41h")

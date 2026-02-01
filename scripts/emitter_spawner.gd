@@ -8,8 +8,8 @@ const SparkEmitter = preload("res://scenes/items/dragon.tscn")
 var emitter: Array[Node2D]
 var spawn_angle: int = 0 
 
-@export var min_radius: int = 1000
-@export var max_radius: int = 1300
+@export var min_radius: int = 1500
+@export var max_radius: int = 2000
 
 func _on_player_change(pos: Vector2):
 	for node in emitter:
