@@ -17,7 +17,15 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=323642208]
 shape = SubResource("RectangleShape2D_3vyb7")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1524047754]
+[node name="QuackPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1524047754]
+stream = ExtResource("2_g2els")
+max_polyphony = 10
+
+[node name="ShrinkPlayer" type="AudioStreamPlayer2D" parent="." unique_id=81914879]
+stream = ExtResource("2_g2els")
+max_polyphony = 10
+
+[node name="UnshrinkPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1391252392]
 stream = ExtResource("2_g2els")
 max_polyphony = 10
 
