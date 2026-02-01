@@ -50,11 +50,13 @@ func speed_down():
 	
 func shrink():
 	$ShrinkPlayer.play()
+	%AnimationPlayer.play("shrink")
 	scale = Vector2(0.5, 0.5)
 	shrink_timer.start()
 	
 func grow():
 	$UnshrinkPlayer.play()
+	%AnimationPlayer.play("unshrink")
 	scale = Vector2(1.0, 1.0)
 
 func exit_win():
