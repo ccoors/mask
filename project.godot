@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Elektrisches Maskenspiel"
 config/version="0.0.1"
-run/main_scene="uid://cowu2jgeg1mu7"
+run/main_scene="uid://djkfox02q733a"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/stretch_mode=0
 boot_splash/image="uid://dsy5b4cl2v58l"

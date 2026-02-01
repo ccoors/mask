@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://djkfox02q733a"]
+
+[ext_resource type="Texture2D" uid="uid://cxletyoq4ddxf" path="res://assets/ui/keyboard_w.svg" id="1_3s76s"]
+[ext_resource type="Script" uid="uid://bbsvfg7c47lkx" path="res://scenes/intermediate/intro.gd" id="1_ugn2k"]
+[ext_resource type="Texture2D" uid="uid://d14nsnmsve27s" path="res://assets/ui/keyboard_a.svg" id="2_oto6l"]
+[ext_resource type="Texture2D" uid="uid://lussf5a3awsh" path="res://assets/ui/keyboard_s.svg" id="3_cqciu"]
+[ext_resource type="Texture2D" uid="uid://d4au3o2gjo23e" path="res://assets/ui/keyboard_d.svg" id="4_khldu"]
+[ext_resource type="Texture2D" uid="uid://bukacryim0snk" path="res://assets/ui/keyboard_arrow_up.svg" id="5_ugn2k"]
+[ext_resource type="Texture2D" uid="uid://ckndd7e6ffp52" path="res://assets/ui/keyboard_arrow_left.svg" id="6_hm3tv"]
+[ext_resource type="Texture2D" uid="uid://cyk3tmeh0qqg3" path="res://assets/ui/keyboard_arrow_down.svg" id="7_u1gmc"]
+[ext_resource type="Texture2D" uid="uid://cegsrlcjh4ck8" path="res://assets/ui/keyboard_arrow_right.svg" id="8_hxiiq"]
+[ext_resource type="Texture2D" uid="uid://ckmu3gkjxfmcl" path="res://assets/ui/generic_stick.svg" id="9_o7gyk"]
+[ext_resource type="Texture2D" uid="uid://b6gorgqkgmfob" path="res://assets/ui/keyboard_1.svg" id="10_fj2cp"]
+[ext_resource type="Texture2D" uid="uid://cdn58qv6x65ve" path="res://assets/ui/keyboard_2.svg" id="11_cwcnq"]
+[ext_resource type="Texture2D" uid="uid://fl7ei3hmai13" path="res://assets/ui/keyboard_3.svg" id="12_cjn78"]
+[ext_resource type="Texture2D" uid="uid://btxl1jl7doxd7" path="res://assets/ui/generic_button_finger.svg" id="13_3s76s"]
+[ext_resource type="PackedScene" uid="uid://cv157qdmvioda" path="res://scenes/player_sprite.tscn" id="14_oto6l"]
+[ext_resource type="PackedScene" uid="uid://c11p5qlq846in" path="res://scenes/items/katzenfutter.tscn" id="15_cqciu"]
+[ext_resource type="AudioStream" uid="uid://bigjbyymyj5nt" path="res://assets/sfx/intro.ogg" id="16_khldu"]
+
+[node name="intro" type="ColorRect" unique_id=1230564132]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_ugn2k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1577670100]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -646.0
+offset_top = -587.0
+offset_right = 646.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=308356447]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Find the cat food. Avoid the bullets.
+Wear the right mask to avoid damage from bullets and pass through obstacles"
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=708143982]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=210561675]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Move:"
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1141871016]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="wasd" type="GridContainer" parent="VBoxContainer/HBoxContainer" unique_id=1169405225]
+layout_mode = 2
+columns = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/wasd" unique_id=1969423482]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/wasd" unique_id=94445326]
+layout_mode = 2
+texture = ExtResource("1_3s76s")
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/wasd" unique_id=648801892]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/wasd" unique_id=223320657]
+layout_mode = 2
+texture = ExtResource("2_oto6l")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/wasd" unique_id=796108604]
+layout_mode = 2
+texture = ExtResource("3_cqciu")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer/wasd" unique_id=231169877]
+layout_mode = 2
+texture = ExtResource("4_khldu")
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1498072658]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="arrows" type="GridContainer" parent="VBoxContainer/HBoxContainer" unique_id=722067262]
+layout_mode = 2
+columns = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/arrows" unique_id=165618679]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/arrows" unique_id=1132666574]
+layout_mode = 2
+texture = ExtResource("5_ugn2k")
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/arrows" unique_id=586392875]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/arrows" unique_id=422583893]
+layout_mode = 2
+texture = ExtResource("6_hm3tv")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/arrows" unique_id=7268527]
+layout_mode = 2
+texture = ExtResource("7_u1gmc")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer/arrows" unique_id=1154625021]
+layout_mode = 2
+texture = ExtResource("8_hxiiq")
+
+[node name="Control4" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1893101746]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1726755940]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("9_o7gyk")
+stretch_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1673872162]
+layout_mode = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1079214952]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Change mask:"
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer2" unique_id=211241064]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="wasd2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1269878519]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer2/wasd2" unique_id=1988481839]
+layout_mode = 2
+texture = ExtResource("10_fj2cp")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer2/wasd2" unique_id=1277478141]
+layout_mode = 2
+texture = ExtResource("11_cwcnq")
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer2/wasd2" unique_id=311152007]
+layout_mode = 2
+texture = ExtResource("12_cjn78")
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer2/wasd2" unique_id=2103006471]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="VBoxContainer/HBoxContainer2/wasd2" unique_id=890790947]
+layout_mode = 2
+texture = ExtResource("13_3s76s")
+
+[node name="start_button" type="Button" parent="VBoxContainer" unique_id=636954134]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="AnimatedSprite2D" parent="." unique_id=2120696688 instance=ExtResource("14_oto6l")]
+position = Vector2(235, 253)
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="AnimatedSprite2D" unique_id=83429160]
+offset_left = 94.0
+offset_top = -80.0
+offset_right = 408.0
+offset_bottom = -46.0
+theme_override_font_sizes/font_size = 24
+text = "Oh my gosh, I'm so hungry!"
+
+[node name="Katzenfutter" parent="." unique_id=249892470 instance=ExtResource("15_cqciu")]
+position = Vector2(1612, 258)
+
+[node name="Intro" type="AudioStreamPlayer" parent="." unique_id=2042498325]
+stream = ExtResource("16_khldu")
+autoplay = true
+
+[connection signal="button_down" from="VBoxContainer/start_button" to="." method="_on_start_button_button_down"]
