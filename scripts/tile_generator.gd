@@ -3,31 +3,30 @@ extends TileMapLayer
 
 class_name TileGenerator
 
+const Energy = preload("res://scenes/items/energy_drink.tscn")
+const Health = preload("res://scenes/items/health_item.tscn")
+const ObstacleKraken = preload("res://scenes/obstacles/kraken.tscn")
+
+
 @export_tool_button("Recreate Map") var execute_action = gen_map
 
 var _last_pos: Vector2i = Vector2i(-1, -1)
 
-func _on_player_change(pos: Vector2):
-	var tile_pos: Vector2i = local_to_map(pos)
-	if _last_pos != tile_pos:
-		draw_map(tile_pos)
-		_last_pos = tile_pos
-
-func _ready():
-	get_node("/root/Main/player").position_changed.connect(_on_player_change)
-	setup_noise()
-	gen_map()
-
-func setup_noise():
-	noise.seed = randi()
-	noise.noise_type = FastNoiseLite.TYPE_PERLIN
-	noise.frequency = 0.02
-	noise.fractal_lacunarity = 2
-	noise.fractal_octaves = 2
-
 @export var size: Vector2i = Vector2i(20, 20)
 
 var noise = FastNoiseLite.new()
+
+const ITEM_PROBABILITY: Dictionary[String, float] = {
+	"energy": .02,
+	"health": .01,
+	"obstacle": .01
+}
+
+const ITEMS: Dictionary[String, Array]  = {
+	"energy": [Energy],
+	"health":  [Health],
+	"obstacle": [ObstacleKraken, ObstacleKraken, ObstacleKraken]
+}
 
 const TILE_TYPE_GRASS: String = "grass"
 const TILE_TYPE_LAVA: String = "lava"
@@ -46,6 +45,23 @@ const WATER0_ID: int = 6
 const WATER1_ID: int = 7
 const WATER2_ID: int = 8
 
+func _setup_noise():
+	noise.seed = randi()
+	noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	noise.frequency = 0.02
+	noise.fractal_lacunarity = 2
+	noise.fractal_octaves = 2
+
+func _on_player_change(pos: Vector2):
+	var tile_pos: Vector2i = local_to_map(pos)
+	if _last_pos != tile_pos:
+		draw_map(tile_pos)
+		_last_pos = tile_pos
+
+func _ready():
+	get_node("/root/Main/player").position_changed.connect(_on_player_change)
+	_setup_noise()
+	gen_map()
 
 func _get_tile_variation(tile_type: String) -> int:
 	var variation_dist = randf()
@@ -71,6 +87,20 @@ func _tile_type_to_string(type_id: int) -> String:
 		return TILE_TYPE_WATER
 	else:
 		return TILE_TYPE_LAVA
+		
+func _create_items(pos: Vector2i, tile_type: int):
+	for name in ITEM_PROBABILITY.keys():
+		var prob = ITEM_PROBABILITY[name]
+		if prob > randf():
+			var spawn_pos = map_to_local(pos)
+			var items = ITEMS[name]
+			var item_idx = min(tile_type, items.size() - 1)
+			var item: Resource = items[item_idx]
+			var inst: Node2D = item.instantiate()
+			inst.position = spawn_pos
+			add_child(inst)
+			return
+	
 
 func draw_map(pos: Vector2i) -> void:
 	# create area around position
@@ -79,14 +109,19 @@ func draw_map(pos: Vector2i) -> void:
 	#  TODO: cleanup tiles that are out-of-size
 	for y in range(-halfsizey, halfsizey):
 		for x in range(-halfsizex, halfsizex):
-			if get_cell_tile_data(Vector2i(x + pos.x, y + pos.y)) != null:
+			var grid_pos = Vector2i(x + pos.x, y + pos.y)
+			if get_cell_tile_data(grid_pos) != null:
 				continue
 			var val = noise.get_noise_2d(x + pos.x, y + pos.y)
 			var tile_type = round(abs(val) * 5);
 			if tile_type > 2:
 				tile_type = 2
+			
+			# put items on grid
+			_create_items(grid_pos, tile_type)
+			
 			set_cell(
-				Vector2i(x + pos.x, y + pos.y),
+				grid_pos,
 				_get_tile_variation(_tile_type_to_string(tile_type)),
 				Vector2i.ZERO)
 
