@@ -74,6 +74,7 @@ func win():
 
 func set_mask(idx: int) -> void:
 	var mask = GLOBALS.MASKS[idx]
+	%mask_sprite.play(mask["mask_animation"])
 	GLOBALS.change_mask(idx)
 	var set_cmask = 0
 	for i in range(5):
