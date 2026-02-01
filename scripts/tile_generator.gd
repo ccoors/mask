@@ -6,6 +6,8 @@ class_name TileGenerator
 const Energy = preload("res://scenes/items/energy_drink.tscn")
 const Health = preload("res://scenes/items/health_item.tscn")
 const ObstacleKraken = preload("res://scenes/obstacles/kraken.tscn")
+const ObstacleBigfoot = preload("res://scenes/obstacles/bigfoot.tscn")
+const ObstacleSalamander = preload("res://scenes/obstacles/bigfoot.tscn")
 const Shrink = preload("res://scenes/items/skrinkiedinks.tscn")
 
 
@@ -27,7 +29,7 @@ const ITEM_PROBABILITY: Dictionary[String, float] = {
 const ITEMS: Dictionary[String, Array]  = {
 	"energy": [Energy],
 	"health":  [Health],
-	"obstacle": [ObstacleKraken, ObstacleKraken, ObstacleKraken],
+	"obstacle": [ObstacleKraken, ObstacleBigfoot, ObstacleSalamander],
 	"shrink": [Shrink]
 }
 
@@ -90,13 +92,31 @@ func _tile_type_to_string(type_id: int) -> String:
 		return TILE_TYPE_WATER
 	else:
 		return TILE_TYPE_LAVA
-		
+
+func _spawn_obstacle(spawn_position: Vector2, tile_type: String):
+	var obstacle_res: Resource
+	if tile_type == TILE_TYPE_GRASS:
+		obstacle_res = ObstacleBigfoot
+	elif tile_type == TILE_TYPE_WATER:
+		obstacle_res = ObstacleKraken
+	else:
+		obstacle_res = ObstacleSalamander
+	var inst: Node2D = obstacle_res.instantiate()
+	inst.position = spawn_position
+	add_child(inst)
+	return
+
 func _create_items(pos: Vector2i, tile_type: int):
-	for name in ITEM_PROBABILITY.keys():
-		var prob = ITEM_PROBABILITY[name]
+	for item_name in ITEM_PROBABILITY.keys():
+		var prob = ITEM_PROBABILITY[item_name]
 		if prob > randf():
 			var spawn_pos = map_to_local(pos)
-			var items = ITEMS[name]
+
+			if item_name == "obstacle":
+				_spawn_obstacle(spawn_pos, _tile_type_to_string(tile_type))
+				return
+
+			var items = ITEMS[item_name]
 			var item_idx = min(tile_type, items.size() - 1)
 			var item: Resource = items[item_idx]
 			var inst: Node2D = item.instantiate()
