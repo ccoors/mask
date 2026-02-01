@@ -7,7 +7,7 @@ const Energy = preload("res://scenes/items/energy_drink.tscn")
 const Health = preload("res://scenes/items/health_item.tscn")
 const ObstacleKraken = preload("res://scenes/obstacles/kraken.tscn")
 const ObstacleBigfoot = preload("res://scenes/obstacles/bigfoot.tscn")
-const ObstacleSalamander = preload("res://scenes/obstacles/bigfoot.tscn")
+const ObstacleSalamander = preload("res://scenes/obstacles/salamander.tscn")
 const Shrink = preload("res://scenes/items/skrinkiedinks.tscn")
 
 
