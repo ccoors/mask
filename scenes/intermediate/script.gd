@@ -4,8 +4,25 @@ var move_vector: Vector2 = Vector2.ZERO
 
 var dolphin = preload("res://scenes/items/dolphin_animation.tscn")
 
+var last_duplication = 0.0
+var accumulator = 0.0
+
+func maybe_duplicate():
+	if accumulator >= 0.04:
+		print("Dupl")
+		var dupl = %Label.duplicate()
+		dupl.z_index = 2
+		dupl["theme_override_constants/outline_size"] = 15
+		dupl["theme_override_colors/font_color"] = Color.TRANSPARENT
+		dupl["theme_override_colors/font_outline_color"] = Color.DEEP_PINK
+		add_child(dupl)
+		var t = get_tree().create_tween()
+		t.tween_property(dupl, "modulate", Color.TRANSPARENT, 1.0)
+		t.tween_callback(dupl.queue_free)
+		accumulator = 0
+
 func _ready():
-	move_vector = Vector2(randf_range(1.0, 2.5), randf_range(1.5, 2.5))
+	move_vector = Vector2(randf_range(1.5, 3.5), randf_range(1.5, 3.5))
 	for x in range(5):
 		add_dolphin()
 
@@ -24,7 +41,9 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		get_tree().quit()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	accumulator += delta
+	maybe_duplicate()
 	%Label.position += move_vector
 	var screen_size = get_viewport().get_visible_rect().size
 	var rect = %Label.get_global_rect()
