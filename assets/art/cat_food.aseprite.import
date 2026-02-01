@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cd1n1rtsbole"
+path="res://.godot/imported/cat_food.aseprite-9cb4f59f62cc82ad6a88018572c28db3.res"
+
+[deps]
+
+source_file="res://assets/art/cat_food.aseprite"
+dest_files=["res://.godot/imported/cat_food.aseprite-9cb4f59f62cc82ad6a88018572c28db3.res"]
+
+[params]
+
