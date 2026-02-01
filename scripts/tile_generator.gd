@@ -20,10 +20,10 @@ var _last_pos: Vector2i = Vector2i(-1, -1)
 var noise = FastNoiseLite.new()
 
 const ITEM_PROBABILITY: Dictionary[String, float] = {
-	"energy": .02,
-	"health": .01,
+	"energy": .005,
+	"health": .003,
 	"obstacle": .01,
-	"shrink": 0.01
+	"shrink": 0.005
 }
 
 const ITEMS: Dictionary[String, Array]  = {
