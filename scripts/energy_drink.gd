@@ -49,7 +49,3 @@ func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 			%AnimationPlayer.play("idle_scale")
 		_:
 			%AnimationPlayer.play("idle")
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
