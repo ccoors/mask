@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bu2asn3rttoff" path="res://scenes/tiles.tscn" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dkq3tiswraqgs" path="res://scenes/items/health_item.tscn" id="3_w8frs"]
-[ext_resource type="Script" path="res://scripts/emitter_spawner.gd" id="5_2r41h"]
+[ext_resource type="Script" uid="uid://bviglwucilvbv" path="res://scripts/emitter_spawner.gd" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://fr3ygkr1wlbn" path="res://scenes/items/energy_drink.tscn" id="5_ppgk2"]
-[ext_resource type="Script" path="res://scripts/winning_spawn.gd" id="6_2r41h"]
+[ext_resource type="Script" uid="uid://b4qheq62or5gk" path="res://scripts/winning_spawn.gd" id="6_2r41h"]
 [ext_resource type="PackedScene" uid="uid://dexnip8htwny7" path="res://scenes/items/skrinkiedinks.tscn" id="6_klq6b"]
 
 [node name="level" type="Node2D" unique_id=77777411]

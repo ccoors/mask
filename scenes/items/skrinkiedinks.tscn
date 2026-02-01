@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dexnip8htwny7"]
 
 [ext_resource type="Texture2D" uid="uid://f337scnbxjbv" path="res://assets/sprites/racoon_mask.png" id="1_q1i3r"]
-[ext_resource type="Script" uid="uid://bwsdfaa6v1mdt" path="res://scripts/shrinkiedinks.gd" id="2_g3tsy"]
+[ext_resource type="Script" path="res://scripts/shrinkiedinks.gd" id="2_g3tsy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g3tsy"]
 
