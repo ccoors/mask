@@ -12,21 +12,21 @@ const BulletType = preload("res://scripts/bullet_type.gd").BulletType
 
 var BulletData = {
 	BulletType.POLLEN: Bullet.new(
-		40.0, 50.0, 90.0,
+		180.0, 200.0, 10.0,
 		preload("res://assets/sprites/pollen.png"),
 		Vector2.ZERO,
 		3,
 		BulletType.POLLEN
 	),
 	BulletType.BUBBLE: Bullet.new(
-		160.0, 12.0, 6.0,
+		300.0, 12.0, 7.0,
 		preload("res://assets/sprites/bubble.png"),
 		Vector2.ZERO,
 		4,
 		BulletType.BUBBLE
 	),
 	BulletType.SPARK: Bullet.new(
-		300.0, 0.0, 10.0,
+		400.0, 0.0, 6.0,
 		preload("res://assets/sprites/spark.png"),
 		Vector2.ZERO,
 		2,
@@ -63,7 +63,7 @@ func _spawn_bullet():
 	
 	if get_tree().get_nodes_in_group(group_name).size() >= max_bullets:
 		return
-		
+
 	var bullet = bullet_scene.instantiate()
 	
 	var base_direction := Vector2.RIGHT.rotated(deg_to_rad(base_rotation))

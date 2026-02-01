@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c11p5qlq846in"]
 
 [ext_resource type="Script" uid="uid://c7ww7a044jx6d" path="res://scenes/items/katzenfutter.gd" id="1_eyl24"]
-[ext_resource type="PackedScene" uid="uid://ca2jay1mvs8pe" path="res://assets/art/katzenfutter.blend" id="2_eyl24"]
+[ext_resource type="PackedScene" uid="uid://b1y2kdxybfbo4" path="res://assets/art/katzenfutter.glb" id="2_eyl24"]
 
 [sub_resource type="Environment" id="Environment_eyl24"]
 background_color = Color(0, 0, 0, 0)
@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, -3.1415925, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_m4dth"]
@@ -31,10 +31,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.0009999999, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 3.1415927, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -3.1415925, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wmhqo"]
@@ -66,8 +66,8 @@ size = Vector2i(400, 400)
 transform = Transform3D(1, 0, 0, 0, 0.88811237, 0.45962638, 0, -0.45962638, 0.88811237, 0, 2.6916215, 2.8963704)
 environment = SubResource("Environment_eyl24")
 
-[node name="katzenfutter" parent="SubViewport" unique_id=304201461 instance=ExtResource("2_eyl24")]
-transform = Transform3D(0.73, 0, 0, 0, 0.73, 0, 0, 0, 0.73, 0, 1.2, 0)
+[node name="katzenfutter" parent="SubViewport" unique_id=297392181 instance=ExtResource("2_eyl24")]
+transform = Transform3D(-0.6199063, 0, -9.360325e-08, 0, 0.6199063, 0, 9.360325e-08, 0, -0.6199063, 0, 1.597, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/katzenfutter" unique_id=1310829922]
 libraries/ = SubResource("AnimationLibrary_wmhqo")

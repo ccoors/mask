@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ce01p06128olx"]
 
-[ext_resource type="Script" path="res://scenes/items/baum.gd" id="1_edhya"]
+[ext_resource type="Script" uid="uid://bkk31tp4mnqhg" path="res://scenes/items/baum.gd" id="1_edhya"]
 [ext_resource type="PackedScene" uid="uid://n67ps1tsfxjd" path="res://assets/art/tree.glb" id="2_edhya"]
 [ext_resource type="PackedScene" uid="uid://crwim327e0ulb" path="res://scenes/pollen_emitter.tscn" id="3_spaub"]
 

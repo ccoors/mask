@@ -40,11 +40,13 @@ func heal():
 func speed_up():
 	speed = 750
 	background_music_player.pitch_scale = 1.5
+	%AnimatedSprite2D.speed_scale = 2.0
 	speed_timer.start()
 	
 func speed_down():
 	speed = 500
 	background_music_player.pitch_scale = 1.0
+	%AnimatedSprite2D.speed_scale = 1.0
 	
 func shrink():
 	scale = Vector2(0.5, 0.5)
@@ -54,11 +56,15 @@ func grow():
 	scale = Vector2(1.0, 1.0)
 
 func exit_win():
+	if not is_inside_tree():
+		return
 	var tree = get_tree()
 	if tree:
 		tree.change_scene_to_file("res://scenes/intermediate/win_screen.tscn")
 
 func exit_loose():
+	if not is_inside_tree():
+		return
 	var tree = get_tree()
 	if tree:
 		tree.change_scene_to_file("res://scenes/intermediate/loose_screen.tscn")

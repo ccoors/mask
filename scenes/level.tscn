@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bu2asn3rttoff" path="res://scenes/tiles.tscn" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://dkq3tiswraqgs" path="res://scenes/items/health_item.tscn" id="3_w8frs"]
-[ext_resource type="Script" uid="uid://c3e4dnol1btq5" path="res://scripts/item_generator.gd" id="4_mx8sn"]
+[ext_resource type="Script" uid="uid://bviglwucilvbv" path="res://scripts/emitter_spawner.gd" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://fr3ygkr1wlbn" path="res://scenes/items/energy_drink.tscn" id="5_ppgk2"]
-[ext_resource type="PackedScene" uid="uid://c11p5qlq846in" path="res://scenes/items/katzenfutter.tscn" id="4_ppgk2"]
+[ext_resource type="Script" uid="uid://b4qheq62or5gk" path="res://scripts/winning_spawn.gd" id="6_2r41h"]
 
 [node name="level" type="Node2D" unique_id=77777411]
 
@@ -15,14 +15,11 @@ tile_map_data = PackedByteArray("AAD2//b/BgAAAAAAAAD3//b/BgAAAAAAAAD4//b/BgAAAAA
 [node name="health_item" parent="." unique_id=879146623 instance=ExtResource("3_w8frs")]
 position = Vector2(81, -410)
 
-[node name="item_spawn" type="Node2D" parent="." unique_id=1616170235]
-script = ExtResource("4_mx8sn")
-size = 64
-_seed = 2006831629
-perlin_threshold = 0.7
-
-[node name="katzenfutter" parent="." unique_id=249892470 instance=ExtResource("4_ppgk2")]
-position = Vector2(-594, -421)
-
 [node name="EnergyDrink" parent="." unique_id=1092518120 instance=ExtResource("5_ppgk2")]
 position = Vector2(-457, 133)
+
+[node name="emitter_spawn" type="Node2D" parent="." unique_id=3876088]
+script = ExtResource("5_2r41h")
+
+[node name="winning_spawn" type="Node2D" parent="." unique_id=978127575]
+script = ExtResource("6_2r41h")
