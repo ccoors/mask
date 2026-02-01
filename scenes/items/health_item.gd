@@ -8,6 +8,8 @@ const RANDOM_COLORS = [
 	Color.FUCHSIA,
 	Color.CRIMSON,
 	Color.MAROON,
+	Color.ORANGE,
+	Color.GOLD,
 ]
 
 var tween: Tween = null
