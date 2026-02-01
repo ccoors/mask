@@ -24,3 +24,7 @@ max_polyphony = 10
 [node name="SpeedTimer" type="Timer" parent="." unique_id=829475205]
 wait_time = 10.0
 one_shot = true
+
+[node name="ShrinkTimer" type="Timer" parent="." unique_id=1973785550]
+wait_time = 10.0
+one_shot = true

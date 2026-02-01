@@ -9,13 +9,14 @@ const ROTATION_SPEED = 5;
 @export var health: int = 10
 
 @onready var speed_timer: Timer = $SpeedTimer
-
+@onready var shrink_timer: Timer = $ShrinkTimer
 @onready var background_music_player: AudioStreamPlayer = get_node("/root/Main/ElektrischeHintergrundmusik")
 
 func _ready() -> void:
 	set_mask(0)
 	health_changed.emit(health)
 	speed_timer.timeout.connect(speed_down)
+	shrink_timer.timeout.connect(grow)
 
 func hit():
 	quack()
@@ -44,6 +45,13 @@ func speed_up():
 func speed_down():
 	speed = 500
 	background_music_player.pitch_scale = 1.0
+	
+func shrink():
+	scale = Vector2(0.5, 0.5)
+	shrink_timer.start()
+	
+func grow():
+	scale = Vector2(1.0, 1.0)
 
 func exit_win():
 	var tree = get_tree()

@@ -3,15 +3,16 @@ extends Sprite2D
 var used: bool = false
 
 const RANDOM_COLORS = [
-	Color.AQUA,
-	Color.AQUAMARINE,
-	Color.BLUE,
-	Color.CHARTREUSE,
-	Color.CYAN,
-	Color.DARK_CYAN,
-	Color.GOLD,
+	Color.RED,
+	Color.DARK_RED,
+	Color.ORANGE_RED,
+	Color.GREEN,
 	Color.GREEN_YELLOW,
-	Color.MEDIUM_VIOLET_RED
+	Color.DARK_GREEN,
+	Color.BLUE,
+	Color.DEEP_SKY_BLUE,
+	Color.MIDNIGHT_BLUE,
+	Color.WHITE,
 ]
 
 var tween: Tween = null
@@ -23,7 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if used:
 		return
 	if body is CharacterBody2D and body.name == "player":
-		body.speed_up()
+		body.shrink()
 		used = true
 		if tween and tween.is_running():
 			tween.kill()
