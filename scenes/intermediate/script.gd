@@ -12,9 +12,11 @@ func maybe_duplicate(delta: float) -> void:
 	if accumulator >= 0.04:
 		var dupl = %Label.duplicate()
 		dupl.z_index = 2
+		dupl.begin_bulk_theme_override()
 		dupl.add_theme_constant_override("outline_size", 15)
 		dupl.add_theme_color_override("font_color", Color.TRANSPARENT)
 		dupl.add_theme_color_override("font_outline_color", Color.DEEP_PINK)
+		dupl.end_bulk_theme_override()
 		add_child(dupl)
 		var t = get_tree().create_tween()
 		t.tween_property(dupl, "modulate", Color.TRANSPARENT, 1.0)
