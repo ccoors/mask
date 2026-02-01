@@ -7,14 +7,15 @@ var dolphin = preload("res://scenes/items/dolphin_animation.tscn")
 var last_duplication = 0.0
 var accumulator = 0.0
 
-func maybe_duplicate():
+func maybe_duplicate(delta: float) -> void:
+	accumulator += delta
 	if accumulator >= 0.04:
 		print("Dupl")
 		var dupl = %Label.duplicate()
 		dupl.z_index = 2
-		dupl["theme_override_constants/outline_size"] = 15
-		dupl["theme_override_colors/font_color"] = Color.TRANSPARENT
-		dupl["theme_override_colors/font_outline_color"] = Color.DEEP_PINK
+		dupl.add_theme_constant_override("outline_size", 15)
+		dupl.add_theme_color_override("font_color", Color.TRANSPARENT)
+		dupl.add_theme_color_override("font_outline_color", Color.DEEP_PINK)
 		add_child(dupl)
 		var t = get_tree().create_tween()
 		t.tween_property(dupl, "modulate", Color.TRANSPARENT, 1.0)
@@ -26,11 +27,10 @@ func _ready():
 	for x in range(5):
 		add_dolphin()
 
-func add_dolphin():
+func add_dolphin() -> void:
 	var d = dolphin.instantiate()
 	var screen_size = get_viewport().get_visible_rect().size
 	d.position = Vector2(randf_range(256, screen_size.x-256), randf_range(256, screen_size.y-256))
-#    d.z_index = -10
 	add_child(d)
 
 func _on_restart_pressed() -> void:
@@ -42,8 +42,7 @@ func _input(event: InputEvent) -> void:
 		get_tree().quit()
 
 func _process(delta: float) -> void:
-	accumulator += delta
-	maybe_duplicate()
+	maybe_duplicate(delta)
 	%Label.position += move_vector
 	var screen_size = get_viewport().get_visible_rect().size
 	var rect = %Label.get_global_rect()
